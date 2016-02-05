@@ -71,6 +71,16 @@
     <url>https://stash.open-web.nl/projects/HP/repos/hippo-structured-data-plugin/browse</url>
     <tag>HEAD</tag>
   </scm>
+  <distributionManagement>
+    <repository>
+      <id>openweb-nexus-releases</id>
+      <url>https://nexus.open-web.nl/nexus/content/repositories/releases/</url>
+    </repository>
+    <snapshotRepository>
+      <id>openweb-nexus-snapshots</id>
+      <url>https://nexus.open-web.nl/nexus/content/repositories/snapshots/</url>
+    </snapshotRepository>
+  </distributionManagement>
   <repositories>
     <repository>
       <id>hippo</id>
