@@ -12,7 +12,7 @@
 
   <groupId>nl.openweb.hippo.hst</groupId>
   <artifactId>structured-data</artifactId>
-  <version>1.0-SNAPSHOT</version>
+  <version>7.9.1-SNAPSHOT</version>
   <properties>
     <jsp-api.version>2.1</jsp-api.version>
     <jstl.version>1.1.2</jstl.version>
@@ -65,7 +65,12 @@
     </dependency>
 
   </dependencies>
-
+  <scm>
+    <connection>scm:git:ssh://git@stash.open-web.nl:7999/hp/hippo-structured-data-plugin.git</connection>
+    <developerConnection>scm:git:ssh://git@stash.open-web.nl:7999/hp/hippo-structured-data-plugin.git</developerConnection>
+    <url>https://stash.open-web.nl/projects/HP/repos/hippo-structured-data-plugin/browse</url>
+    <tag>HEAD</tag>
+  </scm>
   <repositories>
     <repository>
       <id>hippo</id>
