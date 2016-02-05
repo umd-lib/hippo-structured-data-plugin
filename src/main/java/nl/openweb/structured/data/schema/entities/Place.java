@@ -1,10 +1,10 @@
-package nl.openweb.schema.entities;
+package nl.openweb.structured.data.schema.entities;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 
-@XmlRootElement(name="Place")
+@XmlRootElement(name = "Place")
 @XmlAccessorType(XmlAccessType.NONE)
 public class Place {
     private static final String type = "@place";

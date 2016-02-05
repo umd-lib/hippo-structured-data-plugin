@@ -58,6 +58,11 @@
       <artifactId>commons-lang</artifactId>
       <version>${commons.lang.version}</version>
     </dependency>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.12</version>
+    </dependency>
 
   </dependencies>
 
@@ -68,4 +73,5 @@
       <url>https://maven.onehippo.com/maven2/</url>
     </repository>
   </repositories>
+
 </project>

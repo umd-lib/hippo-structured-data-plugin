@@ -1,11 +1,11 @@
-package nl.openweb.schema.mapping.beans;
+package nl.openweb.structured.data.schema.mapping.beans;
+
+import nl.openweb.structured.data.schema.entities.Place;
 
 import javax.xml.bind.annotation.*;
 import java.util.Calendar;
 
-import nl.openweb.schema.entities.Place;
-
-@XmlRootElement(name="event")
+@XmlRootElement(name = "event")
 @XmlAccessorType(XmlAccessType.NONE)
 public class Event implements StructuredData {
     private final String context = "http://schema.org";
@@ -35,12 +35,12 @@ public class Event implements StructuredData {
         return url;
     }
 
-    @XmlElement(name="startDate")
+    @XmlElement(name = "startDate")
     public Calendar getStartDate() {
         return startDate;
     }
 
-    @XmlElement(name="location")
+    @XmlElement(name = "location")
     public Place getLocation() {
         return location;
     }
