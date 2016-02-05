@@ -11,6 +11,13 @@ public class Event implements StructuredData {
     private final String context = "http://schema.org";
     private final String type = "Event";
 
+    private Event(Event.Builder builder) {
+        this.name = builder.name;
+        this.url = builder.url;
+        this.startDate = builder.startDate;
+        this.location = builder.location;
+    }
+
     private String name, url;
     private Calendar startDate;
     private Place location;
@@ -45,7 +52,29 @@ public class Event implements StructuredData {
         return location;
     }
 
-    public void setLocation(Place location) {
-        this.location = location;
+    public static class Builder {
+        private String name, url;
+        private Calendar startDate;
+        private Place location;
+
+        public Builder(String name, String url) {
+            this.name = name;
+            this.url = url;
+        }
+
+        public Builder location(Place location) {
+            this.location = location;
+            return this;
+        }
+
+        public Builder startDate(Calendar startDate) {
+            this.startDate = startDate;
+            return this;
+        }
+
+        public Event build() {
+            return new Event(this);
+        }
     }
+
 }

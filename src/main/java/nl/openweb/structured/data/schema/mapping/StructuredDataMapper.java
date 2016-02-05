@@ -2,10 +2,10 @@ package nl.openweb.structured.data.schema.mapping;
 
 import nl.openweb.structured.data.schema.mapping.beans.StructuredData;
 
-public interface StructuredDataMapper {
+public interface StructuredDataMapper<T> {
 
-    StructuredData transform(Object bean);
+    StructuredData transform(T bean);
 
-    Class<?> getType();
+    Class<T> getType();
 
 }

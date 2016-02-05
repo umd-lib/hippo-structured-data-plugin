@@ -11,7 +11,7 @@ public class EventBean {
     private Calendar startDate;
     private Place location;
 
-    public EventBean(Place location, String name, Calendar startDate, String url) {
+    public EventBean(String name, String url, Place location, Calendar startDate) {
         this.location = location;
         this.name = name;
         this.startDate = startDate;

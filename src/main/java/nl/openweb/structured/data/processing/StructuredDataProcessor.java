@@ -12,6 +12,7 @@ import java.io.StringWriter;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
+@SuppressWarnings("unchecked")
 public class StructuredDataProcessor {
 
     private Map<Class, Optional<StructuredDataMapper>> dataMapperMap;
@@ -35,7 +36,7 @@ public class StructuredDataProcessor {
         return result;
     }
 
-    private String generateJson(Object bean, StructuredDataMapper structuredDataMapper) {
+    private <T> String generateJson(T bean, StructuredDataMapper structuredDataMapper) {
         String result;
         try {
             try (StringWriter writer = new StringWriter()) {
