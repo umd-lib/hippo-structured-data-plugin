@@ -1,18 +1,20 @@
 package nl.openweb.structured.data.processing;
 
-import java.io.IOException;
-import java.io.StringWriter;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
-
 import com.google.common.base.Optional;
-
+import nl.openweb.structured.data.schema.entities.StructuredData;
+import nl.openweb.structured.data.schema.mapping.StructuredDataMapper;
 import org.apache.commons.lang.StringUtils;
 import org.codehaus.jackson.map.ObjectMapper;
+import org.codehaus.jackson.map.annotate.JsonSerialize;
 import org.hippoecm.hst.site.HstServices;
 
-import nl.openweb.structured.data.schema.mapping.StructuredDataMapper;
-import nl.openweb.structured.data.schema.mapping.beans.StructuredData;
+import java.io.IOException;
+import java.io.StringWriter;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Map;
+import java.util.TimeZone;
+import java.util.concurrent.ConcurrentHashMap;
 
 @SuppressWarnings("unchecked")
 public class StructuredDataProcessor {
@@ -22,6 +24,12 @@ public class StructuredDataProcessor {
 
 
     public void init() {
+        // configuring objectMapper to ignore null properties
+        objectMapper.setSerializationInclusion(JsonSerialize.Inclusion.NON_NULL);
+        DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mmZ");
+        df.setTimeZone(TimeZone.getTimeZone("UTC"));
+        objectMapper.setDateFormat(df);
+
         dataMapperMap = new ConcurrentHashMap<>();
         Map<String, StructuredDataMapper> dataMappers = HstServices.getComponentManager().getComponentsOfType(StructuredDataMapper.class);
         for (StructuredDataMapper structuredDataMapper : dataMappers.values()) {

@@ -65,7 +65,7 @@ public class MockComponentManager implements ComponentManager {
 
     @Override
     public <T> T getComponent(Class<T> aClass) throws ComponentsException {
-        return null;
+        return applicationContext.getBean(aClass);
     }
 
     @Override

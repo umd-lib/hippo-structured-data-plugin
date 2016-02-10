@@ -1,7 +1,5 @@
 package nl.openweb.structured.data.domain;
 
-import nl.openweb.structured.data.schema.entities.Place;
-
 import java.util.Calendar;
 
 public class EventBean {
@@ -9,16 +7,18 @@ public class EventBean {
     private String name;
     private String url;
     private Calendar startDate;
-    private Place location;
+    private Calendar endDate;
+    private LocationBean location;
 
-    public EventBean(String name, String url, Place location, Calendar startDate) {
+    public EventBean(String name, String url, LocationBean location, Calendar startDate, Calendar endDate) {
         this.location = location;
         this.name = name;
         this.startDate = startDate;
         this.url = url;
+        this.endDate = endDate;
     }
 
-    public Place getLocation() {
+    public LocationBean getLocation() {
         return location;
     }
 
@@ -32,5 +32,9 @@ public class EventBean {
 
     public String getUrl() {
         return url;
+    }
+
+    public Calendar getEndDate() {
+        return endDate;
     }
 }

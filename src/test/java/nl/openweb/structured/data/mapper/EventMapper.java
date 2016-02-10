@@ -1,14 +1,17 @@
 package nl.openweb.structured.data.mapper;
 
 import nl.openweb.structured.data.domain.EventBean;
+import nl.openweb.structured.data.schema.entities.Event;
+import nl.openweb.structured.data.schema.entities.StructuredData;
 import nl.openweb.structured.data.schema.mapping.StructuredDataMapper;
-import nl.openweb.structured.data.schema.mapping.beans.Event;
-import nl.openweb.structured.data.schema.mapping.beans.StructuredData;
+import org.hippoecm.hst.site.HstServices;
 
 public class EventMapper implements StructuredDataMapper<EventBean> {
     @Override
     public StructuredData transform(EventBean bean) {
-        return new Event.Builder(bean.getName(), bean.getLocation()).startDate(bean.getStartDate()).url(bean.getUrl()).build();
+        LocationMapper locationMapper = HstServices.getComponentManager().getComponent(LocationMapper.class);
+        return new Event.Builder().setName(bean.getName()).setLocation(locationMapper.transform(bean.getLocation()))
+                .setStartDate(bean.getStartDate()).setUrl(bean.getUrl()).setEndDate(bean.getEndDate()).build();
     }
 
     @Override
