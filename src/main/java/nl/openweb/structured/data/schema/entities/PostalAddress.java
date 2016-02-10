@@ -81,6 +81,7 @@ public class PostalAddress extends ContactPoint{
             return this;
         }
 
+        @Override
         public PostalAddress build() {
             return new PostalAddress(this);
         }

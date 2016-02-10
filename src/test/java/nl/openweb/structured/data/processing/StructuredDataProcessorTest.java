@@ -57,7 +57,7 @@ public class StructuredDataProcessorTest {
 
         System.out.println(prettyPrint(jsonNode));
 
-        verifyEventFeilds(bean, jsonNode);
+        verifyEventFields(bean, jsonNode);
 
         JsonNode location = jsonNode.get("location");
 
@@ -68,7 +68,7 @@ public class StructuredDataProcessorTest {
 
     }
 
-    private void verifyEventFeilds(EventBean bean, JsonNode jsonNode) {
+    private void verifyEventFields(EventBean bean, JsonNode jsonNode) {
         Assert.assertEquals("http://schema.org", getStringProperty(jsonNode, "@context"));
         Assert.assertEquals("Event", getStringProperty(jsonNode, "@type"));
         Assert.assertEquals(bean.getName(), getStringProperty(jsonNode, "name"));

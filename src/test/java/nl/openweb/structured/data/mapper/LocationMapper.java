@@ -8,7 +8,7 @@ public class LocationMapper implements StructuredDataMapper<LocationBean> {
 
     @Override
     public Place transform(LocationBean bean) {
-        return new Place.Builder(bean.getName()).setAddress(bean.getAddress()).build();
+        return new Place.Builder().setAddress(bean.getAddress()).<Place.Builder>setName(bean.getName()).build();
     }
 
     @Override

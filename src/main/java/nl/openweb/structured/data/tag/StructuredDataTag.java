@@ -1,31 +1,31 @@
 package nl.openweb.structured.data.tag;
 
+import nl.openweb.structured.data.processing.StructuredDataProcessor;
+import org.hippoecm.hst.content.beans.standard.HippoBean;
+import org.hippoecm.hst.core.component.HstRequest;
+import org.hippoecm.hst.site.HstServices;
+
 import javax.servlet.ServletRequest;
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspWriter;
 import javax.servlet.jsp.tagext.TagSupport;
 import java.io.IOException;
 
-import org.hippoecm.hst.content.beans.standard.HippoBean;
-import org.hippoecm.hst.core.component.HstRequest;
-import org.hippoecm.hst.site.HstServices;
-
-import nl.openweb.structured.data.processing.StructuredDataProcessor;
-
 public class StructuredDataTag extends TagSupport {
-    private HippoBean bean;
 
+    private transient Object bean;
 
+    @Override
     public void release() {
         this.bean = null;
     }
 
     @Override
     public int doStartTag() throws JspException {
-        HippoBean bean = getBean();
-        if (bean != null) {
+        Object targetBean = getBean();
+        if (targetBean != null) {
             StructuredDataProcessor processor = HstServices.getComponentManager().getComponent("structuredDataProcessor", "nl.openweb.structured.data");
-            String result = processor.getStructuredDataAsJsonString(bean);
+            String result = processor.getStructuredDataAsJsonString(targetBean);
             try {
                 if (!result.isEmpty()) {
                     JspWriter out = pageContext.getOut();
@@ -40,20 +40,20 @@ public class StructuredDataTag extends TagSupport {
         return SKIP_BODY;
     }
 
-    public HippoBean getBean() {
+    public Object getBean() {
         return bean != null ? bean : getBeanFromContext();
     }
 
-    public void setBean(HippoBean bean) {
+    public void setBean(Object bean) {
         this.bean = bean;
     }
 
     private HippoBean getBeanFromContext() {
-        HippoBean bean = null;
+        HippoBean result = null;
         ServletRequest request = pageContext.getRequest();
         if (request instanceof HstRequest) {
-            bean = ((HstRequest) request).getRequestContext().getContentBean();
+            result = ((HstRequest) request).getRequestContext().getContentBean();
         }
-        return bean;
+        return result;
     }
 }

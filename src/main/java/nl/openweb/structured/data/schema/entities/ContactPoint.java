@@ -93,6 +93,7 @@ public class ContactPoint extends Thing {
             return this;
         }
 
+        @Override
         public ContactPoint build() {
             return new ContactPoint(this);
         }

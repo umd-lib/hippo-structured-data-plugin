@@ -63,6 +63,7 @@ public class Thing implements StructuredData {
         return url;
     }
 
+    @SuppressWarnings("unchecked")
     public static class Builder {
         private String additionalType;
         private String alternateName;
@@ -73,44 +74,44 @@ public class Thing implements StructuredData {
         private String sameAs;
         private String url;
 
-        public Builder setAdditionalType(String additionalType) {
+        public <T extends Builder> T setAdditionalType(String additionalType) {
             this.additionalType = additionalType;
-            return this;
+            return (T) this;
         }
 
-        public Builder setAlternateName(String alternateName) {
+        public <T extends Builder> T setAlternateName(String alternateName) {
             this.alternateName = alternateName;
-            return this;
+            return (T) this;
         }
 
-        public Builder setDescription(String description) {
+        public <T extends Builder> T setDescription(String description) {
             this.description = description;
-            return this;
+            return (T) this;
         }
 
-        public Builder setImage(String image) {
+        public <T extends Builder> T setImage(String image) {
             this.image = image;
-            return this;
+            return (T) this;
         }
 
-        public Builder setMainEntityOfPage(String mainEntityOfPage) {
+        public <T extends Builder> T setMainEntityOfPage(String mainEntityOfPage) {
             this.mainEntityOfPage = mainEntityOfPage;
-            return this;
+            return (T) this;
         }
 
-        public Builder setName(String name) {
+        public <T extends Builder> T setName(String name) {
             this.name = name;
-            return this;
+            return (T) this;
         }
 
-        public Builder setSameAs(String sameAs) {
+        public <T extends Builder> T setSameAs(String sameAs) {
             this.sameAs = sameAs;
-            return this;
+            return (T) this;
         }
 
-        public Builder setUrl(String url) {
+        public <T extends Builder> T setUrl(String url) {
             this.url = url;
-            return this;
+            return (T) this;
         }
 
         public Thing build() {
