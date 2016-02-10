@@ -1,13 +1,49 @@
 package nl.openweb.structured.data.schema.entities;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlRootElement;
+import org.codehaus.jackson.annotate.JsonProperty;
 
-@XmlRootElement(name = "Place")
-@XmlAccessorType(XmlAccessType.NONE)
-public class Place {
-    private static final String type = "@place";
+import nl.openweb.structured.data.schema.mapping.beans.StructuredData;
+
+public class Place implements StructuredData{
+    private static final String TYPE = "Place";
     private PostalAddress address;
+    private String name;
 
+    private Place(Builder builder) {
+        this.address = builder.address;
+        this.name = builder.name;
+    }
+
+    @JsonProperty("address")
+    public PostalAddress getAddress() {
+        return address;
+    }
+
+    @JsonProperty("@type")
+    public String getType() {
+        return TYPE;
+    }
+
+    @JsonProperty("name")
+    public String getName() {
+        return name;
+    }
+
+    public static class Builder {
+        private PostalAddress address;
+        private String name;
+
+        public Builder(String name) {
+            this.name = name;
+        }
+
+        public Builder address(PostalAddress address) {
+            this.address = address;
+            return this;
+        }
+
+        public Place build() {
+            return new Place(this);
+        }
+    }
 }

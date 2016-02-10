@@ -1,53 +1,51 @@
 package nl.openweb.structured.data.schema.mapping.beans;
 
+import java.util.Calendar;
+import java.util.Date;
+
+import org.codehaus.jackson.annotate.JsonProperty;
+
 import nl.openweb.structured.data.schema.entities.Place;
 
-import javax.xml.bind.annotation.*;
-import java.util.Calendar;
-
-@XmlRootElement(name = "event")
-@XmlAccessorType(XmlAccessType.NONE)
 public class Event implements StructuredData {
-    private final String context = "http://schema.org";
-    private final String type = "Event";
+    private final String TYPE = "Event";
+    private String name, url;
+    private Calendar startDate;
+    private Place location;
 
-    private Event(Event.Builder builder) {
+    public Event(Event.Builder builder) {
         this.name = builder.name;
         this.url = builder.url;
         this.startDate = builder.startDate;
         this.location = builder.location;
     }
 
-    private String name, url;
-    private Calendar startDate;
-    private Place location;
-
-    @XmlAttribute(name = "@context")
+    @JsonProperty("@context")
     public String getContext() {
-        return context;
+        return CONTEXT;
     }
 
-    @XmlAttribute(name = "@type")
+    @JsonProperty("@type")
     public String getType() {
-        return type;
+        return TYPE;
     }
 
-    @XmlElement(name = "name")
+    @JsonProperty("name")
     public String getName() {
         return name;
     }
 
-    @XmlElement(name = "url")
+    @JsonProperty("url")
     public String getUrl() {
         return url;
     }
 
-    @XmlElement(name = "startDate")
-    public Calendar getStartDate() {
-        return startDate;
+    @JsonProperty("startDate")
+    public Date getStartDate() {
+        return startDate.getTime();
     }
 
-    @XmlElement(name = "location")
+    @JsonProperty("location")
     public Place getLocation() {
         return location;
     }
@@ -57,13 +55,13 @@ public class Event implements StructuredData {
         private Calendar startDate;
         private Place location;
 
-        public Builder(String name, String url) {
+        public Builder(String name, Place location) {
             this.name = name;
-            this.url = url;
+            this.location = location;
         }
 
-        public Builder location(Place location) {
-            this.location = location;
+        public Builder url(String url) {
+            this.url = url;
             return this;
         }
 

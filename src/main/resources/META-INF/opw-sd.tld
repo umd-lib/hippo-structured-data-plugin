@@ -1,0 +1,18 @@
+<taglib>
+  <tlib-version>1.0</tlib-version>
+  <short-name>opw-sd</short-name>
+  <uri>http://open-web.nl/hippo/structured-data</uri>
+  <jsp-version>2.0</jsp-version>
+  <tag>
+    <description>Creates a script with structured data in ld+json.</description>
+    <name>ld-json</name>
+    <tag-class>nl.openweb.structured.data.tag.StructuredDataTag</tag-class>
+    <body-content>empty</body-content>
+    <attribute>
+      <description> The bean to mapke a mapping of</description>
+      <name>bean</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+</taglib>

@@ -1,16 +1,18 @@
 package nl.openweb.structured.data.processing;
 
-import com.google.common.base.Optional;
-import nl.openweb.structured.data.schema.mapping.StructuredDataMapper;
-import nl.openweb.structured.data.schema.mapping.beans.StructuredData;
-import org.apache.commons.lang.StringUtils;
-import org.codehaus.jackson.map.ObjectMapper;
-import org.hippoecm.hst.site.HstServices;
-
 import java.io.IOException;
 import java.io.StringWriter;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
+
+import com.google.common.base.Optional;
+
+import org.apache.commons.lang.StringUtils;
+import org.codehaus.jackson.map.ObjectMapper;
+import org.hippoecm.hst.site.HstServices;
+
+import nl.openweb.structured.data.schema.mapping.StructuredDataMapper;
+import nl.openweb.structured.data.schema.mapping.beans.StructuredData;
 
 @SuppressWarnings("unchecked")
 public class StructuredDataProcessor {
@@ -51,7 +53,7 @@ public class StructuredDataProcessor {
         return result;
     }
 
-    public Optional<StructuredDataMapper> getOptionalMapperFor(Object bean) {
+    private Optional<StructuredDataMapper> getOptionalMapperFor(Object bean) {
         Optional<StructuredDataMapper> mapper;
         Class beanClass = bean.getClass();
         if (dataMapperMap.containsKey(beanClass)) {
