@@ -5,4 +5,5 @@
 
         <bean class="nl.openweb.structured.data.mapper.EventMapper"/>
         <bean class="nl.openweb.structured.data.mapper.LocationMapper"/>
+        <bean class="nl.openweb.structured.data.mapper.ItemListMapper"/>
 </beans>

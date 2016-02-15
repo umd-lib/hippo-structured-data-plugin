@@ -39,7 +39,7 @@ public class StructuredDataProcessor {
 
     public String getStructuredDataAsJsonString(Object bean) {
         String result = StringUtils.EMPTY;
-        Optional<StructuredDataMapper> optional = getOptionalMapperFor(bean);
+        Optional<StructuredDataMapper> optional = getMapperFor(bean);
         if (optional.isPresent()) {
             result = generateJson(bean, optional.get());
         }
@@ -61,7 +61,7 @@ public class StructuredDataProcessor {
         return result;
     }
 
-    private Optional<StructuredDataMapper> getOptionalMapperFor(Object bean) {
+    public Optional<StructuredDataMapper> getMapperFor(Object bean) {
         Optional<StructuredDataMapper> mapper;
         Class beanClass = bean.getClass();
         if (dataMapperMap.containsKey(beanClass)) {
