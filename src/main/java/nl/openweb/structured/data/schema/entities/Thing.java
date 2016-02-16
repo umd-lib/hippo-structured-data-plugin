@@ -20,6 +20,7 @@ public class Thing implements StructuredData {
         this.name = builder.name;
         this.sameAs = builder.sameAs;
         this.url = builder.url;
+        this.id = builder.id;
     }
 
     @Override
