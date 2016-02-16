@@ -26,6 +26,7 @@ public class ItemListMapper implements StructuredDataMapper<List> {
         return new ItemList.Builder().setItemListElementAsThing(itemListElement).build();
     }
 
+    @SuppressWarnings("unchecked")
     private Thing transformToThing(StructuredDataProcessor structuredDataProcessor, Object item) {
         Optional<StructuredDataMapper> mapperFor = structuredDataProcessor.getMapperFor(item);
         Thing result = null;
