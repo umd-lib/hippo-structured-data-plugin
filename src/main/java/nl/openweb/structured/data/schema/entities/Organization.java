@@ -4,7 +4,7 @@ public class Organization extends Thing {
 
     private String logo;
 
-    Organization(Builder builder) {
+    protected Organization(Builder builder) {
         super(builder);
         this.logo = builder.logo;
     }

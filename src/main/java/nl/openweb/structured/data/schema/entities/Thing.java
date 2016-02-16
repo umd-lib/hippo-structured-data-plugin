@@ -11,7 +11,7 @@ public class Thing implements StructuredData {
     private String url;
     private String id;
 
-    Thing(Thing.Builder builder) {
+    protected Thing(Thing.Builder builder) {
         this.additionalType = builder.additionalType;
         this.alternateName = builder.alternateName;
         this.description = builder.description;

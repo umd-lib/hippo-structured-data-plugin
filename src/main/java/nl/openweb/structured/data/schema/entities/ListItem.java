@@ -7,7 +7,7 @@ public class ListItem extends Intangible {
     private Integer position;
     private ListItem previousItem;
 
-    public ListItem(Builder builder) {
+    protected ListItem(Builder builder) {
         super(builder);
         this.item = builder.item;
         this.nextItem = builder.nextItem;

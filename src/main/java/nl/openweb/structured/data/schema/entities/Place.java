@@ -6,7 +6,7 @@ public class Place extends Thing {
     private PostalAddress address;
     private String addressAsString;
 
-    Place(Builder builder) {
+    protected Place(Builder builder) {
         super(builder);
         this.address = builder.address;
         this.addressAsString = builder.addressAsString;

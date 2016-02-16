@@ -12,7 +12,7 @@ public class Event extends Thing {
     private PostalAddress locationAsPostalAddress;
     private String locationAsString;
 
-    Event(Builder builder) {
+    protected Event(Builder builder) {
         super(builder);
         this.endDate = builder.endDate;
         this.location = builder.location;

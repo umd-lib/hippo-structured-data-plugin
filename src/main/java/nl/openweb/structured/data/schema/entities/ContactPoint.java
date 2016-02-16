@@ -10,7 +10,7 @@ public class ContactPoint extends Thing {
     private String productSupported;
     private String telephone;
 
-    public ContactPoint(ContactPoint.Builder builder) {
+    protected ContactPoint(ContactPoint.Builder builder) {
         super(builder);
         this.areaServed = builder.areaServed;
         this.availableLanguage = builder.availableLanguage;

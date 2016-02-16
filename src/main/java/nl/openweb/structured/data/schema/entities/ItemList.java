@@ -11,7 +11,7 @@ public class ItemList extends Intangible {
     private String itemListOrder;
     private Integer numberOfItems;
 
-    public ItemList(Builder builder) {
+    protected ItemList(Builder builder) {
         super(builder);
         this.itemListElement = builder.itemListElement;
         this.itemListElementAsThing = builder.itemListElementAsThing;

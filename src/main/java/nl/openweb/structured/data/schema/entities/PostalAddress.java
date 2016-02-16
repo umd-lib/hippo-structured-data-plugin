@@ -9,7 +9,7 @@ public class PostalAddress extends ContactPoint{
     private String postalCode;
     private String streetAddress;
 
-    public PostalAddress(PostalAddress.Builder builder) {
+    protected PostalAddress(PostalAddress.Builder builder) {
         super(builder);
         this.addressCountry = builder.addressCountry;
         this.addressLocality = builder.addressLocality;
