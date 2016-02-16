@@ -14,7 +14,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.TimeZone;
 
-public class AbstractEntityTest {
+public abstract class AbstractEntityTest {
 
     protected StructuredDataProcessor structuredDataProcessor = new StructuredDataProcessor();
     protected ObjectMapper objectMapper;

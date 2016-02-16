@@ -1,5 +1,6 @@
 package nl.openweb.structured.data.schema.entities;
 
+import java.util.Collections;
 import java.util.List;
 
 public class ItemList extends Intangible {
@@ -19,7 +20,7 @@ public class ItemList extends Intangible {
         this.numberOfItems = builder.numberOfItems;
     }
 
-    public List<?> getItemListElement() {
+    public List getItemListElement() {
         if (itemListElement != null) {
             return itemListElement;
         } else if (itemListElementAsThing != null) {
@@ -27,7 +28,7 @@ public class ItemList extends Intangible {
         } else if (itemListElementAsString != null) {
             return itemListElementAsString;
         } else {
-            return null;
+            return Collections.emptyList();
         }
     }
 

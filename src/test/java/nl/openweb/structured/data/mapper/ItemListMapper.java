@@ -11,9 +11,6 @@ import org.hippoecm.hst.site.HstServices;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Ebrahim on 2/15/2016.
- */
 public class ItemListMapper implements StructuredDataMapper<List> {
 
     @Override

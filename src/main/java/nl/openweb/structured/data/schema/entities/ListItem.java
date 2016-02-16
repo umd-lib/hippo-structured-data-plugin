@@ -105,6 +105,7 @@ public class ListItem extends Intangible {
             return this;
         }
 
+        @Override
         public ListItem build() {
             return new ListItem(this);
         }
