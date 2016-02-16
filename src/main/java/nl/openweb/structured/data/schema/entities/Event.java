@@ -124,6 +124,12 @@ public class Event extends Thing {
         }
 
         @Override
+        public Builder setId(String id) {
+            super.setId(id);
+            return this;
+        }
+
+        @Override
         public Event build() {
             return new Event(this);
         }

@@ -10,4 +10,7 @@ public interface StructuredData {
     @JsonProperty("@type")
     String getType();
 
+    @JsonProperty("@id")
+    String getId();
+
 }

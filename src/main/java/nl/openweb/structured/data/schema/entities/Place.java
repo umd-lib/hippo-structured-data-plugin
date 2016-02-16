@@ -85,6 +85,12 @@ public class Place extends Thing {
         }
 
         @Override
+        public Builder setId(String id) {
+            super.setId(id);
+            return this;
+        }
+
+        @Override
         public Place build() {
             return new Place(this);
         }

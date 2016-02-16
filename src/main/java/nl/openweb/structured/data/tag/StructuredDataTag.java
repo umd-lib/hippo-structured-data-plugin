@@ -13,6 +13,7 @@ import java.io.IOException;
 
 public class StructuredDataTag extends TagSupport {
 
+    private static final long serialVersionUID = -4685336583926691092L;
     private transient Object bean;
 
     @Override

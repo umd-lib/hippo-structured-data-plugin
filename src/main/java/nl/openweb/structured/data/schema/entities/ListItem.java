@@ -106,6 +106,12 @@ public class ListItem extends Intangible {
         }
 
         @Override
+        public Builder setId(String id) {
+            super.setId(id);
+            return this;
+        }
+
+        @Override
         public ListItem build() {
             return new ListItem(this);
         }

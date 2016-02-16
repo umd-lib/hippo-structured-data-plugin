@@ -9,6 +9,7 @@ public class Thing implements StructuredData {
     private String name;
     private String sameAs;
     private String url;
+    private String id;
 
     Thing(Thing.Builder builder) {
         this.additionalType = builder.additionalType;
@@ -29,6 +30,11 @@ public class Thing implements StructuredData {
     @Override
     public String getType() {
         return getClass().getSimpleName();
+    }
+
+    @Override
+    public String getId() {
+        return id;
     }
 
     public String getAdditionalType() {
@@ -63,6 +69,8 @@ public class Thing implements StructuredData {
         return url;
     }
 
+
+
     public static class Builder {
         private String additionalType;
         private String alternateName;
@@ -72,6 +80,7 @@ public class Thing implements StructuredData {
         private String name;
         private String sameAs;
         private String url;
+        private String id;
 
         public Builder setAdditionalType(String additionalType) {
             this.additionalType = additionalType;
@@ -110,6 +119,11 @@ public class Thing implements StructuredData {
 
         public Builder setUrl(String url) {
             this.url = url;
+            return this;
+        }
+
+        public Builder setId(String id) {
+            this.id = id;
             return this;
         }
 
