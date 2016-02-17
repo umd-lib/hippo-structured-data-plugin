@@ -6,6 +6,7 @@ import java.util.List;
 public class Article extends CreativeWork {
 
     private String articleBody;
+    private List<String> articleBodyAsList;
     private List<String> articleSection;
     private String pageEnd;
     private String pageStart;
@@ -15,6 +16,7 @@ public class Article extends CreativeWork {
     protected Article(Builder builder) {
         super(builder);
         this.articleBody = builder.articleBody;
+        this.articleBodyAsList = builder.articleBodyAsList;
         this.articleSection = builder.articleSection;
         this.pageEnd = builder.pageEnd;
         this.pageStart = builder.pageStart;
@@ -22,8 +24,12 @@ public class Article extends CreativeWork {
         this.wordCount = builder.wordCount;
     }
 
-    public String getArticleBody() {
-        return articleBody;
+    public Object getArticleBody() {
+        Object result = this.articleBody;
+        if (result == null) {
+            result = this.articleBodyAsList;
+        }
+        return result;
     }
 
     public List<String> getArticleSection() {
@@ -48,6 +54,7 @@ public class Article extends CreativeWork {
 
     public static class Builder extends CreativeWork.Builder {
         private String articleBody;
+        private List<String> articleBodyAsList;
         private List<String> articleSection;
         private String pageEnd;
         private String pageStart;
@@ -56,6 +63,11 @@ public class Article extends CreativeWork {
 
         public Builder setArticleBody(String articleBody) {
             this.articleBody = articleBody;
+            return this;
+        }
+
+        public Builder setArticleBody(List<String> articleBodyAsList) {
+            this.articleBodyAsList = articleBodyAsList;
             return this;
         }
 
