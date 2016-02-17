@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
@@ -12,7 +10,7 @@
 
   <groupId>nl.openweb.hippo.hst</groupId>
   <artifactId>structured-data</artifactId>
-  <version>7.9.1-SNAPSHOT</version>
+  <version>7.9.1</version>
   <properties>
     <jsp-api.version>2.1</jsp-api.version>
     <jstl.version>1.1.2</jstl.version>
@@ -69,7 +67,7 @@
     <connection>scm:git:ssh://git@stash.open-web.nl:7999/hp/hippo-structured-data-plugin.git</connection>
     <developerConnection>scm:git:ssh://git@stash.open-web.nl:7999/hp/hippo-structured-data-plugin.git</developerConnection>
     <url>https://stash.open-web.nl/projects/HP/repos/hippo-structured-data-plugin/browse</url>
-    <tag>HEAD</tag>
+    <tag>structured-data-7.9.1</tag>
   </scm>
   <distributionManagement>
     <repository>
