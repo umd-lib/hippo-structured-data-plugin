@@ -13,6 +13,7 @@ public class CreativeWork extends Thing {
     private String accountablePerson;
     private String aggregateRating;
     private String alternativeHeadline;
+    private Object author;
     private String award;
     private String citation;
     private Comment comment;
@@ -42,6 +43,7 @@ public class CreativeWork extends Thing {
     private Thing mainEntity;
     private List<Thing> mentions;
     private String position;
+    private Object publisher;
     private String publishingPrinciples;
     private Event recordedAt;
     private Review review;
@@ -63,6 +65,7 @@ public class CreativeWork extends Thing {
         this.accountablePerson = builder.accountablePerson;
         this.aggregateRating = builder.aggregateRating;
         this.alternativeHeadline = builder.alternativeHeadline;
+        this.author = builder.author;
         this.award = builder.award;
         this.citation = builder.citation;
         this.comment = builder.comment;
@@ -92,6 +95,7 @@ public class CreativeWork extends Thing {
         this.mainEntity = builder.mainEntity;
         this.mentions = builder.mentions;
         this.position = builder.position;
+        this.publisher = builder.publisher;
         this.publishingPrinciples = builder.publishingPrinciples;
         this.recordedAt = builder.recordedAt;
         this.review = builder.review;
@@ -136,6 +140,9 @@ public class CreativeWork extends Thing {
         return alternativeHeadline;
     }
 
+    public Object getAuthor(){
+        return author;
+    }
     public String getAward() {
         return award;
     }
@@ -301,6 +308,7 @@ public class CreativeWork extends Thing {
         private String accountablePerson;
         private String aggregateRating;
         private String alternativeHeadline;
+        private Object author;
         private String award;
         private String citation;
         private Comment comment;
@@ -340,6 +348,7 @@ public class CreativeWork extends Thing {
         private String typicalAgeRange;
         private Number version;
         private CreativeWork workExample;
+        public Object publisher;
 
         public Builder setAbout(Thing about) {
             this.about = about;
@@ -378,6 +387,16 @@ public class CreativeWork extends Thing {
 
         public Builder setAlternativeHeadline(String alternativeHeadline) {
             this.alternativeHeadline = alternativeHeadline;
+            return this;
+        }
+
+        public Builder setAuthor(Person author){
+            this.author = author;
+            return this;
+        }
+
+        public Builder setAuthor(Organization author){
+            this.author = author;
             return this;
         }
 
@@ -526,6 +545,16 @@ public class CreativeWork extends Thing {
             return this;
         }
 
+        public Builder setPublisher(Organization publisher){
+            this.publisher = publisher;
+            return this;
+        }
+
+        public Builder setPublisher(Person publisher){
+            this.publisher = publisher;
+            return this;
+        }
+
         public Builder setPublishingPrinciples(String publishingPrinciples) {
             this.publishingPrinciples = publishingPrinciples;
             return this;
@@ -602,6 +631,12 @@ public class CreativeWork extends Thing {
 
         @Override
         public Builder setImage(String image) {
+            super.setImage(image);
+            return this;
+        }
+
+        @Override
+        public Builder setImage(ImageObject image) {
             super.setImage(image);
             return this;
         }

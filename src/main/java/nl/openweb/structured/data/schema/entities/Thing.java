@@ -4,7 +4,7 @@ public class Thing implements StructuredData {
     private String additionalType;
     private String alternateName;
     private String description;
-    private String image;
+    private Object image;
     private String mainEntityOfPage;
     private String name;
     private String sameAs;
@@ -50,7 +50,7 @@ public class Thing implements StructuredData {
         return description;
     }
 
-    public String getImage() {
+    public Object getImage() {
         return image;
     }
 
@@ -76,7 +76,7 @@ public class Thing implements StructuredData {
         private String additionalType;
         private String alternateName;
         private String description;
-        private String image;
+        private Object image;
         private String mainEntityOfPage;
         private String name;
         private String sameAs;
@@ -99,6 +99,11 @@ public class Thing implements StructuredData {
         }
 
         public Builder setImage(String image) {
+            this.image = image;
+            return this;
+        }
+
+        public Builder setImage(ImageObject image) {
             this.image = image;
             return this;
         }

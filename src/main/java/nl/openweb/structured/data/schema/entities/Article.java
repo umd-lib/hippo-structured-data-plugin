@@ -158,6 +158,18 @@ public class Article extends CreativeWork {
         }
 
         @Override
+        public Builder setAuthor(Person author) {
+            super.setAuthor(author);
+            return this;
+        }
+
+        @Override
+        public Builder setAuthor(Organization author) {
+            super.setAuthor(author);
+            return this;
+        }
+
+        @Override
         public Builder setAward(String award) {
             super.setAward(award);
             return this;
@@ -272,6 +284,12 @@ public class Article extends CreativeWork {
         }
 
         @Override
+        public Builder setImage(ImageObject image) {
+            super.setImage(image);
+            return this;
+        }
+
+        @Override
         public Builder setInLanguage(String inLanguage) {
             super.setInLanguage(inLanguage);
             return this;
@@ -358,6 +376,17 @@ public class Article extends CreativeWork {
         @Override
         public Builder setPosition(String position) {
             super.setPosition(position);
+            return this;
+        }
+
+        public Builder setPublisher(Organization publisher){
+            super.setPublisher(publisher);
+            return this;
+        }
+
+        @Override
+        public Builder setPublisher(Person publisher) {
+            super.setPublisher(publisher);
             return this;
         }
 
