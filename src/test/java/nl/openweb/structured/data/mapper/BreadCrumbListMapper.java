@@ -8,8 +8,9 @@ import nl.openweb.structured.data.schema.entities.BreadcrumbList;
 import nl.openweb.structured.data.schema.entities.ListItem;
 import nl.openweb.structured.data.schema.entities.StructuredData;
 import nl.openweb.structured.data.schema.entities.Thing;
+import nl.openweb.structured.data.schema.mapping.StructuredDataMapper;
 
-public class BreadCrumbListMapper implements nl.openweb.structured.data.schema.mapping.StructuredDataMapper<List<BreadcrumbItem>> {
+public class BreadCrumbListMapper implements StructuredDataMapper<List<BreadcrumbItem>> {
     @Override
     public StructuredData transform(List<BreadcrumbItem> bean) {
         List<ListItem> breadcrumbItems = new ArrayList<>();
