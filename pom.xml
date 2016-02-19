@@ -64,9 +64,9 @@
 
   </dependencies>
   <scm>
-    <connection>scm:git:ssh://git@stash.open-web.nl:7999/hp/hippo-structured-data-plugin.git</connection>
-    <developerConnection>scm:git:ssh://git@stash.open-web.nl:7999/hp/hippo-structured-data-plugin.git</developerConnection>
-    <url>https://stash.open-web.nl/projects/HP/repos/hippo-structured-data-plugin/browse</url>
+    <url>https://github.com/openweb-nl/hippo-structured-data-plugin</url>
+    <connection>scm:git:git://github.com:openweb-nl/hippo-structured-data-plugin.git</connection>
+    <developerConnection>scm:git:git@github.com:openweb-nl/hippo-structured-data-plugin.git</developerConnection>
     <tag>HEAD</tag>
   </scm>
   <distributionManagement>
