@@ -1,13 +1,5 @@
 package nl.openweb.structured.data.processing;
 
-import com.google.common.base.Optional;
-import nl.openweb.structured.data.schema.entities.StructuredData;
-import nl.openweb.structured.data.schema.mapping.StructuredDataMapper;
-import org.apache.commons.lang.StringUtils;
-import org.codehaus.jackson.map.ObjectMapper;
-import org.codehaus.jackson.map.annotate.JsonSerialize;
-import org.hippoecm.hst.site.HstServices;
-
 import java.io.IOException;
 import java.io.StringWriter;
 import java.text.DateFormat;
@@ -16,12 +8,24 @@ import java.util.Map;
 import java.util.TimeZone;
 import java.util.concurrent.ConcurrentHashMap;
 
+import com.google.common.base.Optional;
+
+import org.apache.commons.lang.StringUtils;
+import org.codehaus.jackson.map.ObjectMapper;
+import org.codehaus.jackson.map.annotate.JsonSerialize;
+import org.hippoecm.hst.site.HstServices;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import nl.openweb.structured.data.schema.entities.StructuredData;
+import nl.openweb.structured.data.schema.mapping.StructuredDataMapper;
+
 @SuppressWarnings("unchecked")
 public class StructuredDataProcessor {
 
     private Map<Class, Optional<StructuredDataMapper>> dataMapperMap;
     private ObjectMapper objectMapper = new ObjectMapper();
-
+    private static final Logger LOG = LoggerFactory.getLogger(StructuredDataProcessor.class);
 
     public void init() {
         // configuring objectMapper to ignore null properties
@@ -32,14 +36,19 @@ public class StructuredDataProcessor {
 
         dataMapperMap = new ConcurrentHashMap<>();
         Map<String, StructuredDataMapper> dataMappers = HstServices.getComponentManager().getComponentsOfType(StructuredDataMapper.class);
+
         for (StructuredDataMapper structuredDataMapper : dataMappers.values()) {
             dataMapperMap.put(structuredDataMapper.getType(), Optional.of(structuredDataMapper));
         }
     }
 
-    public String getStructuredDataAsJsonString(Object bean) {
+    public <T> String getStructuredDataAsJsonString(T bean){
+        return getStructuredDataAsJsonString(bean, null);
+    }
+
+    public <T> String getStructuredDataAsJsonString(T bean, String mapperName) {
         String result = StringUtils.EMPTY;
-        Optional<StructuredDataMapper> optional = getMapperFor(bean);
+        Optional<StructuredDataMapper> optional = mapperName == null ? getMapperFor(bean) : getMapperByName(mapperName);
         if (optional.isPresent()) {
             result = generateJson(bean, optional.get());
         }
@@ -70,6 +79,18 @@ public class StructuredDataProcessor {
             mapper = findInheritedMapper(beanClass);
         }
         return mapper;
+    }
+
+    public Optional<StructuredDataMapper> getMapperByName(String mapperName){
+        Optional<StructuredDataMapper> result;
+        StructuredDataMapper mapper = HstServices.getComponentManager().getComponent(mapperName);
+        if(mapper != null){
+            result = Optional.of(mapper);
+        }else{
+            LOG.error("Unknown name [{}] for mapper, check your configuration.", mapperName);
+            result = Optional.absent();
+        }
+        return result;
     }
 
     private Optional<StructuredDataMapper> findInheritedMapper(Class beanClass) {

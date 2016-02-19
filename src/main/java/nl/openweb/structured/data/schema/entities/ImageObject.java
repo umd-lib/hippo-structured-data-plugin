@@ -10,13 +10,13 @@ public class ImageObject extends MediaObject {
         @Override
         public Builder setHeight(QuantitativeValue height) {
             super.setHeight(height);
-			return this;
+            return this;
         }
 
         @Override
         public Builder setWidth(QuantitativeValue width) {
             super.setWidth(width);
-			return this;
+            return this;
         }
 
         @Override

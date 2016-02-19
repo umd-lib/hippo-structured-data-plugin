@@ -19,8 +19,8 @@ public class MediaObject extends CreativeWork {
     }
 
     public static class Builder extends CreativeWork.Builder {
-        public QuantitativeValue height;
-        public QuantitativeValue width;
+        private QuantitativeValue height;
+        private QuantitativeValue width;
 
         public Builder setHeight(QuantitativeValue height){
             this.height = height;

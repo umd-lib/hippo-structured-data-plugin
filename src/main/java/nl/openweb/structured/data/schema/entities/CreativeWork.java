@@ -259,6 +259,10 @@ public class CreativeWork extends Thing {
         return position;
     }
 
+    public Object getPublisher() {
+        return publisher;
+    }
+
     public String getPublishingPrinciples() {
         return publishingPrinciples;
     }
@@ -348,7 +352,7 @@ public class CreativeWork extends Thing {
         private String typicalAgeRange;
         private Number version;
         private CreativeWork workExample;
-        public Object publisher;
+        private Object publisher;
 
         public Builder setAbout(Thing about) {
             this.about = about;

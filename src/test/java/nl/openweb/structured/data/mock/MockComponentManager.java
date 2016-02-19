@@ -1,14 +1,14 @@
 package nl.openweb.structured.data.mock;
 
-import org.hippoecm.hst.core.container.ComponentManager;
-import org.hippoecm.hst.core.container.ComponentsException;
-import org.hippoecm.hst.core.container.ContainerConfiguration;
-import org.springframework.context.ApplicationContext;
-
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletContext;
 import java.util.EventObject;
 import java.util.Map;
+
+import org.hippoecm.hst.core.container.ComponentManager;
+import org.hippoecm.hst.core.container.ComponentsException;
+import org.hippoecm.hst.core.container.ContainerConfiguration;
+import org.springframework.context.ApplicationContext;
 
 public class MockComponentManager implements ComponentManager {
 
@@ -60,7 +60,7 @@ public class MockComponentManager implements ComponentManager {
 
     @Override
     public <T> T getComponent(String s) {
-        return null;
+        return (T) applicationContext.getBean(s);
     }
 
     @Override

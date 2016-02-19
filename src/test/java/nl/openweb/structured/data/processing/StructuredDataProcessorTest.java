@@ -1,27 +1,29 @@
 package nl.openweb.structured.data.processing;
 
+import java.io.IOException;
+import java.util.Calendar;
+import java.util.TimeZone;
+
+import org.codehaus.jackson.JsonNode;
+import org.junit.Assert;
+import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.NoSuchBeanDefinitionException;
+
 import nl.openweb.structured.data.domain.EventBean;
 import nl.openweb.structured.data.domain.LocationBean;
 import nl.openweb.structured.data.domain.TrainingEventBean;
 import nl.openweb.structured.data.domain.UnknownBean;
 import nl.openweb.structured.data.schema.entities.AbstractEntityTest;
 import nl.openweb.structured.data.utils.VerificationUtils;
-import org.codehaus.jackson.JsonNode;
-import org.junit.Assert;
-import org.junit.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import java.io.IOException;
-import java.util.Calendar;
-import java.util.TimeZone;
 
 public class StructuredDataProcessorTest extends AbstractEntityTest {
 
     private static final Logger LOG = LoggerFactory.getLogger(StructuredDataProcessorTest.class);
 
     @Test
-    public void smockTest() throws IOException {
+    public void smokeTest() throws IOException {
         Calendar startDate = Calendar.getInstance();
         startDate.setTimeZone(TimeZone.getTimeZone("CET"));
         startDate.set(2016, Calendar.FEBRUARY, 10, 14, 43);
@@ -54,6 +56,11 @@ public class StructuredDataProcessorTest extends AbstractEntityTest {
     public void unknownBeanTest() {
         String jsonString = structuredDataProcessor.getStructuredDataAsJsonString(new UnknownBean());
         Assert.assertEquals("", jsonString);
+    }
+
+    @Test(expected = NoSuchBeanDefinitionException.class)
+    public void unknownMapperTest(){
+        structuredDataProcessor.getMapperByName("unknown");
     }
 
 
