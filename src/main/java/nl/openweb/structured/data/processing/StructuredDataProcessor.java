@@ -38,7 +38,10 @@ public class StructuredDataProcessor {
         Map<String, StructuredDataMapper> dataMappers = HstServices.getComponentManager().getComponentsOfType(StructuredDataMapper.class);
 
         for (StructuredDataMapper structuredDataMapper : dataMappers.values()) {
-            dataMapperMap.put(structuredDataMapper.getType(), Optional.of(structuredDataMapper));
+            Class type = structuredDataMapper.getType();
+            if(type != null) {
+                dataMapperMap.put(type, Optional.of(structuredDataMapper));
+            }
         }
     }
 
