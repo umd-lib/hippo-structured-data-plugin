@@ -1,10 +1,12 @@
 package nl.openweb.structured.data.utils;
 
-import nl.openweb.structured.data.domain.EventBean;
+import java.text.DateFormat;
+
 import org.codehaus.jackson.JsonNode;
 import org.junit.Assert;
 
-import java.text.DateFormat;
+import nl.openweb.structured.data.domain.BreadcrumbItem;
+import nl.openweb.structured.data.domain.EventBean;
 
 public class VerificationUtils {
 
@@ -27,6 +29,14 @@ public class VerificationUtils {
         Assert.assertEquals("Place", getProperty(location, "@type"));
         Assert.assertEquals(bean.getLocation().getName(), getProperty(location, "name"));
         Assert.assertEquals(bean.getLocation().getAddress(), getProperty(location, "address"));
+    }
+
+    public static void verifyBreadcrumbFields(BreadcrumbItem bean, JsonNode jsonNode, int position){
+        Assert.assertEquals("ListItem", getProperty(jsonNode, "@type"));
+        Assert.assertEquals(position, jsonNode.get("position").asInt());
+        JsonNode item = jsonNode.get("item");
+        Assert.assertEquals(bean.getName(), getProperty(item, "name"));
+        Assert.assertEquals(bean.getUrl(), getProperty(item, "@id"));
     }
 
     private static String getProperty(JsonNode jsonNode, String propertyName) {

@@ -4,6 +4,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
         <bean id="itemListMapper" class="nl.openweb.structured.data.mapper.NamedItemListMapper"/>
+        <bean id="breadcrumbList" class="nl.openweb.structured.data.mapper.BreadCrumbListMapper"/>
         <bean class="nl.openweb.structured.data.mapper.EventMapper"/>
         <bean class="nl.openweb.structured.data.mapper.LocationMapper"/>
         <bean class="nl.openweb.structured.data.mapper.ItemListMapper"/>
