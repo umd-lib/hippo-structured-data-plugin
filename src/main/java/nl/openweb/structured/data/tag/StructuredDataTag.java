@@ -18,10 +18,12 @@ public class StructuredDataTag extends TagSupport {
 
     private static final long serialVersionUID = -4685336583926691092L;
     private transient Object bean;
+    private transient String mapperId;
 
     @Override
     public void release() {
         this.bean = null;
+        this.mapperId = null;
     }
 
     @Override
@@ -30,7 +32,7 @@ public class StructuredDataTag extends TagSupport {
             Object targetBean = getBean();
             if (targetBean != null) {
                 StructuredDataProcessor processor = HstServices.getComponentManager().getComponent("structuredDataProcessor", "nl.openweb.structured.data");
-                String result = processor.getStructuredDataAsJsonString(targetBean);
+                String result = processor.getStructuredDataAsJsonString(targetBean, mapperId);
                 if (!result.isEmpty()) {
                     JspWriter out = pageContext.getOut();
                     out.write("<script type=\"application/ld+json\">\n");
@@ -60,5 +62,13 @@ public class StructuredDataTag extends TagSupport {
             result = ((HstRequest) request).getRequestContext().getContentBean();
         }
         return result;
+    }
+
+    public String getMapper() {
+        return mapperId;
+    }
+
+    public void setMapper(String mapperName) {
+        this.mapperId = mapperName;
     }
 }

@@ -9,8 +9,14 @@
     <tag-class>nl.openweb.structured.data.tag.StructuredDataTag</tag-class>
     <body-content>empty</body-content>
     <attribute>
-      <description> The bean to make a mapping of</description>
+      <description>The bean to make a mapping of</description>
       <name>bean</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <description>The bean id for the mapper to map the bean with</description>
+      <name>mapper</name>
       <required>false</required>
       <rtexprvalue>true</rtexprvalue>
     </attribute>
