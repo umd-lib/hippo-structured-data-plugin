@@ -6,6 +6,7 @@ Usage
 ------
 Add dependency to Hippo Site
 Create mapper classes implementing the interface: _nl.openweb.structured.data.schema.mapping.StructuredDataMapper_
+
 Register them in spring
 ```XML
     <bean id="breadcrumbList" class="nl.openweb.structured.data.mapper.BreadCrumbListMapper"/>
@@ -21,9 +22,9 @@ To map the current contentbean
 ```
 Or to map a specific bean
 ```XML
-<opw-sd:ld-json bean="${bean}/>
+<opw-sd:ld-json bean="${bean}"/>
 ```
 Or to map an object using a named mapper
 ```XML
-<opw-sd:ld-json bean="${breadcrumbList} mapper="breadcrumbList"/>
+<opw-sd:ld-json bean="${breadcrumbList}" mapper="breadcrumbList"/>
 ```
