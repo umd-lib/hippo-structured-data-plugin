@@ -28,8 +28,9 @@ public class BreadCrumbListMapper implements StructuredDataMapper<List<Breadcrum
 
             breadcrumbItems.add(listItem);
         }
-        BreadcrumbList breadcrumbList = new BreadcrumbList.Builder()
-                .setItemListElement(breadcrumbItems).build();
+        BreadcrumbList breadcrumbList = bean.isEmpty() ? null :
+                new BreadcrumbList.Builder()
+                        .setItemListElement(breadcrumbItems).build();
         return breadcrumbList;
     }
 

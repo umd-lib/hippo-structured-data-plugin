@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
+import org.apache.commons.collections.ListUtils;
 import org.codehaus.jackson.JsonNode;
 import org.codehaus.jackson.node.ArrayNode;
 import org.junit.Test;
@@ -12,6 +13,9 @@ import org.slf4j.LoggerFactory;
 
 import nl.openweb.structured.data.domain.BreadcrumbItem;
 import nl.openweb.structured.data.utils.VerificationUtils;
+
+
+import static org.junit.Assert.assertTrue;
 
 public class BreadcrumbListTest extends AbstractEntityTest{
     private static final String BREADCRUMBLIST_MAPPER_NAME = "breadcrumbList";
@@ -38,5 +42,12 @@ public class BreadcrumbListTest extends AbstractEntityTest{
             VerificationUtils.verifyBreadcrumbFields(breadcrumbs.get(i), itemListElement.get(i), i + 1);
         }
 
+    }
+
+    @Test
+    public void testEmptyList(){
+        List<BreadcrumbItem> breadcrumbs = ListUtils.EMPTY_LIST;
+        String jsonString = structuredDataProcessor.getStructuredDataAsJsonString(breadcrumbs, BREADCRUMBLIST_MAPPER_NAME);
+        assertTrue(jsonString.isEmpty());
     }
 }

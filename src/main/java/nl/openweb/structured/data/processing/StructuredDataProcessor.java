@@ -59,12 +59,14 @@ public class StructuredDataProcessor {
     }
 
     private <T> String generateJson(T bean, StructuredDataMapper structuredDataMapper) {
-        String result;
+        String result = StringUtils.EMPTY;
         try {
             try (StringWriter writer = new StringWriter()) {
                 StructuredData data = structuredDataMapper.transform(bean);
-                objectMapper.writeValue(writer, data);
-                result = writer.toString();
+                if(data != null) {
+                    objectMapper.writeValue(writer, data);
+                    result = writer.toString();
+                }
             }
         } catch (IOException e) {
             // Never going to happen
