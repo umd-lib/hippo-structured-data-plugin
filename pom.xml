@@ -110,6 +110,23 @@
             </dependency>
           </dependencies>
         </plugin>
+        <plugin>
+          <groupId>org.pitest</groupId>
+          <artifactId>pitest-maven</artifactId>
+          <version>1.1.9</version>
+          <configuration>
+            <targetClasses>
+              <param>nl.openweb.structured.data.processing*</param>
+            </targetClasses>
+            <targetTests>
+              <param>nl.openweb.structured.data*</param>
+            </targetTests>
+            <outputFormats>
+              <outputFormat>XML</outputFormat>
+              <outputFormat>HTML</outputFormat>
+            </outputFormats>
+          </configuration>
+        </plugin>
       </plugins>
     </pluginManagement>
   </build>
