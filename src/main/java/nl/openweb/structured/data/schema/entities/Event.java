@@ -1,6 +1,6 @@
 package nl.openweb.structured.data.schema.entities;
 
-import org.codehaus.jackson.annotate.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.Calendar;
 import java.util.Date;

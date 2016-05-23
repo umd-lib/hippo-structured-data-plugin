@@ -8,17 +8,19 @@ import java.util.Map;
 import java.util.TimeZone;
 import java.util.concurrent.ConcurrentHashMap;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.base.Optional;
 
 import org.apache.commons.lang.StringUtils;
-import org.codehaus.jackson.map.ObjectMapper;
-import org.codehaus.jackson.map.annotate.JsonSerialize;
 import org.hippoecm.hst.site.HstServices;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import nl.openweb.structured.data.schema.entities.StructuredData;
 import nl.openweb.structured.data.schema.mapping.StructuredDataMapper;
+
+;
 
 @SuppressWarnings("unchecked")
 public class StructuredDataProcessor {
@@ -29,7 +31,7 @@ public class StructuredDataProcessor {
 
     public void init() {
         // configuring objectMapper to ignore null properties
-        objectMapper.setSerializationInclusion(JsonSerialize.Inclusion.NON_NULL);
+        objectMapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
         DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mmZ");
         df.setTimeZone(TimeZone.getTimeZone("UTC"));
         objectMapper.setDateFormat(df);

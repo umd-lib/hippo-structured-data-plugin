@@ -1,6 +1,6 @@
 package nl.openweb.structured.data.schema.entities;
 
-import org.codehaus.jackson.annotate.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Place extends Thing {
     private PostalAddress address;

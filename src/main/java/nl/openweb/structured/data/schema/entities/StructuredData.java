@@ -1,6 +1,7 @@
 package nl.openweb.structured.data.schema.entities;
 
-import org.codehaus.jackson.annotate.JsonProperty;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public interface StructuredData {
 

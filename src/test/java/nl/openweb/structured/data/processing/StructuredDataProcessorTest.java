@@ -4,7 +4,8 @@ import java.io.IOException;
 import java.util.Calendar;
 import java.util.TimeZone;
 
-import org.codehaus.jackson.JsonNode;
+import com.fasterxml.jackson.databind.JsonNode;
+
 import org.junit.Assert;
 import org.junit.Test;
 import org.slf4j.Logger;

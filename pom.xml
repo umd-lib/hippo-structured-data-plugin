@@ -5,24 +5,23 @@
   <parent>
     <groupId>org.onehippo.cms7</groupId>
     <artifactId>hippo-cms7-release</artifactId>
-    <version>7.9.9</version>
+    <version>10.1.2</version>
   </parent>
 
   <groupId>nl.openweb.hippo.hst</groupId>
   <artifactId>structured-data</artifactId>
-  <version>7.9.5-SNAPSHOT</version>
+  <version>10.0.01-SNAPSHOT</version>
   <properties>
-    <jsp-api.version>2.1</jsp-api.version>
-    <jstl.version>1.1.2</jstl.version>
-    <taglibs.version>1.1.2</taglibs.version>
+    <jsp-api.version>2.2</jsp-api.version>
+    <taglibs.version>1.2.1</taglibs.version>
     <commons.lang.version>2.6</commons.lang.version>
   </properties>
   <dependencies>
     <dependency>
-      <groupId>javax.servlet</groupId>
-      <artifactId>jstl</artifactId>
-      <version>${jstl.version}</version>
-      <scope>provided</scope>
+      <groupId>org.apache.taglibs</groupId>
+      <artifactId>taglibs-standard-spec</artifactId>
+      <version>${taglibs.version}</version>
+      <scope>runtime</scope>
     </dependency>
     <dependency>
       <groupId>javax.servlet.jsp</groupId>
@@ -46,8 +45,8 @@
       <type>pom</type>
     </dependency>
     <dependency>
-      <groupId>taglibs</groupId>
-      <artifactId>standard</artifactId>
+      <groupId>org.apache.taglibs</groupId>
+      <artifactId>taglibs-standard-impl</artifactId>
       <version>${taglibs.version}</version>
       <scope>runtime</scope>
     </dependency>

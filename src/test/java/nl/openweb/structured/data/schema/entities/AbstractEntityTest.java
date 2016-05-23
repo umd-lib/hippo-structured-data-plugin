@@ -1,18 +1,20 @@
 package nl.openweb.structured.data.schema.entities;
 
 
-import nl.openweb.structured.data.mock.MockComponentManager;
-import nl.openweb.structured.data.processing.StructuredDataProcessor;
-import org.codehaus.jackson.JsonNode;
-import org.codehaus.jackson.map.ObjectMapper;
-import org.hippoecm.hst.site.HstServices;
-import org.junit.Before;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.TimeZone;
+
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import org.hippoecm.hst.site.HstServices;
+import org.junit.Before;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import nl.openweb.structured.data.mock.MockComponentManager;
+import nl.openweb.structured.data.processing.StructuredDataProcessor;
 
 public abstract class AbstractEntityTest {
 

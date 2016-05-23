@@ -2,7 +2,7 @@ package nl.openweb.structured.data.utils;
 
 import java.text.DateFormat;
 
-import org.codehaus.jackson.JsonNode;
+import com.fasterxml.jackson.databind.JsonNode;
 import org.junit.Assert;
 
 import nl.openweb.structured.data.domain.BreadcrumbItem;

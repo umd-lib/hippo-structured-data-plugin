@@ -6,8 +6,8 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.TimeZone;
 
-import org.codehaus.jackson.JsonNode;
-import org.codehaus.jackson.node.ArrayNode;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.node.ArrayNode;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.slf4j.Logger;
