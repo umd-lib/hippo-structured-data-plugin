@@ -1,62 +1,56 @@
 package nl.openweb.structured.data.schema.entities;
 
-public class ListItem extends Intangible {
+/**
+ *
+ * Intended audience for an item, i.e. the group for whom the item was created.
+ *
+ * Thing > Intangible > Audience
+ *
+ * @author Texelz (by Onhate)
+ *
+ */
+public class Audience extends Intangible {
 
-    private Thing item;
-    private ListItem nextItem;
-    private Integer position;
-    private ListItem previousItem;
+    private String audienceType;
+    private AdministrativeArea geographicArea;
 
-    protected ListItem(Builder builder) {
+    protected Audience(Builder builder) {
         super(builder);
-        this.item = builder.item;
-        this.nextItem = builder.nextItem;
-        this.position = builder.position;
-        this.previousItem = builder.previousItem;
+        this.audienceType = builder.audienceType;
+        this.geographicArea=builder.geographicArea;
     }
 
-    public Thing getItem() {
-        return item;
+    /**
+     * The target group associated with a given audience (e.g. veterans, car
+     * owners, musicians, etc.) domain: Audience Range: Text
+     */
+    public String getAudienceType() {
+        return this.audienceType;
     }
 
-    public ListItem getNextItem() {
-        return nextItem;
-    }
-
-    public Integer getPosition() {
-        return position;
-    }
-
-    public ListItem getPreviousItem() {
-        return previousItem;
+    /**
+     * The geographic area associated with the audience.
+     */
+    public AdministrativeArea getGeographicArea() {
+        return this.geographicArea;
     }
 
     public static class Builder extends Intangible.Builder {
-        private Thing item;
-        private ListItem nextItem;
-        private Integer position;
-        private ListItem previousItem;
+        private String audienceType;
+        private AdministrativeArea geographicArea;
 
-        public Builder setItem(Thing item) {
-            this.item = item;
+        public Builder setAudienceType(String audienceType) {
+            this.audienceType = audienceType;
             return this;
         }
 
-        public Builder setNextItem(ListItem nextItem) {
-            this.nextItem = nextItem;
+        public Builder setBestRating(AdministrativeArea geographicArea) {
+            this.geographicArea = geographicArea;
             return this;
         }
-
-        public Builder setPosition(Integer position) {
-            this.position = position;
-            return this;
-        }
-
-        public Builder setPreviousItem(ListItem previousItem) {
-            this.previousItem = previousItem;
-            return this;
-        }
-
+        /*
+        Following lines override the Parent Thing Builder
+         */
         @Override
         public Builder setAdditionalType(String additionalType) {
             super.setAdditionalType(additionalType);
@@ -100,6 +94,12 @@ public class ListItem extends Intangible {
         }
 
         @Override
+        public Builder setPotentialAction(Action potentialAction) {
+            super.setPotentialAction( potentialAction);
+            return this;
+        }
+
+        @Override
         public Builder setSameAs(String sameAs) {
             super.setSameAs(sameAs);
             return this;
@@ -117,9 +117,11 @@ public class ListItem extends Intangible {
             return this;
         }
 
+
+
         @Override
-        public ListItem build() {
-            return new ListItem(this);
+        public Audience build() {
+            return new Audience(this);
         }
     }
 

@@ -103,6 +103,12 @@ public class ItemList extends Intangible {
         }
 
         @Override
+        public Builder setImage(ImageObject image) {
+            super.setImage(image);
+            return this;
+        }
+
+        @Override
         public Builder setMainEntityOfPage(String mainEntityOfPage) {
             super.setMainEntityOfPage(mainEntityOfPage);
             return this;

@@ -100,6 +100,12 @@ public class Event extends Thing {
         }
 
         @Override
+        public Builder setImage(ImageObject image) {
+            super.setImage(image);
+            return this;
+        }
+
+        @Override
         public Builder setMainEntityOfPage(String mainEntityOfPage) {
             super.setMainEntityOfPage(mainEntityOfPage);
             return this;
@@ -108,6 +114,12 @@ public class Event extends Thing {
         @Override
         public Builder setName(String name) {
             super.setName(name);
+            return this;
+        }
+
+        @Override
+        public Builder setPotentialAction(Action potentialAction) {
+            super.setPotentialAction(potentialAction);
             return this;
         }
 

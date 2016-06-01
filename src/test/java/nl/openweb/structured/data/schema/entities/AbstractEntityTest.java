@@ -1,47 +1,33 @@
 package nl.openweb.structured.data.schema.entities;
 
+import java.util.Calendar;
 
-import nl.openweb.structured.data.mock.MockComponentManager;
-import nl.openweb.structured.data.processing.StructuredDataProcessor;
-import org.codehaus.jackson.JsonNode;
-import org.codehaus.jackson.map.ObjectMapper;
-import org.hippoecm.hst.site.HstServices;
-import org.junit.Before;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import static nl.ivonet.beanunit.Asserter.registerTypeAndDefaultArgument;
 
-import java.io.IOException;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.TimeZone;
+/**
+ * Created by Pim Schrama on 5/30/2016.
+ */
+public class AbstractEntityTest {
+    protected void registerBuilderBeanAsserterDefaults() {
+        registerTypeAndDefaultArgument(Thing.class, new Thing.Builder().build());
+        registerTypeAndDefaultArgument(Action.class, new Action.Builder().build());
+        registerTypeAndDefaultArgument(ImageObject.class, new ImageObject.Builder().build());
+        registerTypeAndDefaultArgument(AggregateRating.class, new AggregateRating.Builder().build());
+        registerTypeAndDefaultArgument(Audience.class, new Audience.Builder().build());
+        registerTypeAndDefaultArgument(Organization.class, new Organization.Builder().build());
+        registerTypeAndDefaultArgument(Product.class, new Product.Builder().build());
+        registerTypeAndDefaultArgument(Review.class, new Review.Builder().build());
+        registerTypeAndDefaultArgument(QuantitativeValue.class, new QuantitativeValue.Builder().build());
+        registerTypeAndDefaultArgument(AdministrativeArea.class, new AdministrativeArea.Builder().build());
+        registerTypeAndDefaultArgument(PostalAddress.class, new PostalAddress.Builder().build());
+        registerTypeAndDefaultArgument(Comment.class, new Comment.Builder().build());
+        registerTypeAndDefaultArgument(CreativeWork.class, new CreativeWork.Builder().build());
+        registerTypeAndDefaultArgument(Place.class, new Place.Builder().build());
+        registerTypeAndDefaultArgument(Event.class, new Event.Builder().build());
+        registerTypeAndDefaultArgument(Person.class, new Person.Builder().build());
 
-public abstract class AbstractEntityTest {
-
-    protected StructuredDataProcessor structuredDataProcessor = new StructuredDataProcessor();
-    protected ObjectMapper objectMapper;
-    protected DateFormat dateFormat;
-
-    @Before
-    public void init() {
-        objectMapper = new ObjectMapper();
-
-        dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mmZ");
-        dateFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
-        objectMapper.setDateFormat(dateFormat);
-
-        if (HstServices.getComponentManager() == null) {
-            synchronized (HstServices.class) {
-                if (HstServices.getComponentManager() == null) {
-                    ClassPathXmlApplicationContext testContext = new ClassPathXmlApplicationContext("test-context.xml",
-                            "\\META-INF\\hst-assembly\\addon\\structureddataaddon\\spring-config.xml");
-                    HstServices.setComponentManager(new MockComponentManager(testContext));
-                }
-            }
-        }
-        structuredDataProcessor.init();
+        registerTypeAndDefaultArgument(Calendar.class, Calendar.getInstance());
+        registerTypeAndDefaultArgument(Double.class, 33.33);
+        registerTypeAndDefaultArgument(Number.class, 33);
     }
-
-    protected String prettyPrint(JsonNode jsonNode) throws IOException {
-        return objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(jsonNode);
-    }
-
 }
