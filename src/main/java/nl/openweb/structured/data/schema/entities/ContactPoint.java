@@ -97,5 +97,12 @@ public class ContactPoint extends Thing {
         public ContactPoint build() {
             return new ContactPoint(this);
         }
+
+        @Override
+        public Builder setPotentialAction(Action potentialAction) {
+            super.setPotentialAction(potentialAction);
+            return this;
+        }
+
     }
 }

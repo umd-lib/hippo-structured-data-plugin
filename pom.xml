@@ -60,8 +60,14 @@
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <version>4.12</version>
+      <scope>test</scope>
     </dependency>
-
+    <dependency>
+      <groupId>nl.ivonet</groupId>
+      <artifactId>beanunit</artifactId>
+      <version>2.0</version>
+      <scope>test</scope>
+    </dependency>
   </dependencies>
   <scm>
     <url>https://github.com/openweb-nl/hippo-structured-data-plugin</url>
@@ -85,6 +91,7 @@
       <name>Hippo maven 2 repository.</name>
       <url>https://maven.onehippo.com/maven2/</url>
     </repository>
+    <repository>
   </repositories>
 
   <build>

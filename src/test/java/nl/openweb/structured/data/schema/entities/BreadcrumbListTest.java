@@ -1,9 +1,8 @@
 package nl.openweb.structured.data.schema.entities;
 
-import java.io.IOException;
-import java.util.Arrays;
-import java.util.List;
-
+import nl.openweb.structured.data.AbstractStructuredDataTest;
+import nl.openweb.structured.data.domain.BreadcrumbItem;
+import nl.openweb.structured.data.utils.VerificationUtils;
 import org.apache.commons.collections.ListUtils;
 import org.codehaus.jackson.JsonNode;
 import org.codehaus.jackson.node.ArrayNode;
@@ -11,13 +10,13 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import nl.openweb.structured.data.domain.BreadcrumbItem;
-import nl.openweb.structured.data.utils.VerificationUtils;
-
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
 
 import static org.junit.Assert.assertTrue;
 
-public class BreadcrumbListTest extends AbstractEntityTest{
+public class BreadcrumbListTest extends AbstractStructuredDataTest {
     private static final String BREADCRUMBLIST_MAPPER_NAME = "breadcrumbList";
     private static final Logger LOG = LoggerFactory.getLogger(BreadcrumbListTest.class);
 

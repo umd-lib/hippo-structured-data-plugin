@@ -3,100 +3,148 @@ package nl.openweb.structured.data.schema.entities;
 import java.util.Calendar;
 import java.util.List;
 
-public class Article extends CreativeWork {
+/**
+ * A news article
+ *
+ * @author Texelz (by Onhate)
+ * Thing > CreativeWork > Article > NewsArticle
+ */
+public class NewsArticle extends Article {
 
-    private String articleBody;
-    private List<String> articleBodyAsList;
-    private List<String> articleSection;
-    private String pageEnd;
-    private String pageStart;
-    private String pagination;
-    private Integer wordCount;
+    private String dateline;
+    private String printColumn;
+    private String printEdition;
+    private String printPage;
+    private String printSection;
 
-    protected Article(Builder builder) {
+    public NewsArticle(Builder builder) {
         super(builder);
-        this.articleBody = builder.articleBody;
-        this.articleBodyAsList = builder.articleBodyAsList;
-        this.articleSection = builder.articleSection;
-        this.pageEnd = builder.pageEnd;
-        this.pageStart = builder.pageStart;
-        this.pagination = builder.pagination;
-        this.wordCount = builder.wordCount;
+        this.dateline = builder.dateline;
+        this.printColumn = builder.printColumn;
+        this.printEdition = builder.printEdition;
+        this.printPage = builder.printPage;
+        this.printSection = builder.printSection;
     }
 
-    public Object getArticleBody() {
-        Object result = this.articleBody;
-        if (result == null) {
-            result = this.articleBodyAsList;
+    /**
+     * The location where the NewsArticle was produced.
+     */
+    public String getDateline() {
+        return this.dateline;
+    }
+
+    /**
+     * The number of the column in which the NewsArticle appears in the print
+     * edition.
+     */
+    public String getPrintColumn() {
+        return this.printColumn;
+    }
+
+
+    /**
+     * The edition of the print product in which the NewsArticle appears.
+     */
+    public String getPrintEdition() {
+        return this.printEdition;
+    }
+
+
+    /**
+     * If this NewsArticle appears in print, this field indicates the name of
+     * the page on which the article is found. Please note that this field is
+     * intended for the exact page name (e.g. A5, B18).
+     */
+    public String getPrintPage() {
+        return this.printPage;
+    }
+
+    /**
+     * If this NewsArticle appears in print, this field indicates the print
+     * section in which the article appeared.
+     */
+    public String getPrintSection() {
+        return this.printSection;
+    }
+
+    public static class Builder extends Article.Builder {
+        private String dateline;
+        private String printColumn;
+        private String printEdition;
+        private String printPage;
+        private String printSection;
+
+
+        public Builder setDateline(String dateline) {
+            this.dateline = dateline;
+            return this;
         }
-        return result;
-    }
 
-    public List<String> getArticleSection() {
-        return articleSection;
-    }
+        public Builder setPrintColumn(String printColumn) {
+            this.printColumn = printColumn;
+            return this;
+        }
 
-    public String getPageEnd() {
-        return pageEnd;
-    }
+        public Builder setPrintEdition(String printEdition) {
+            this.printEdition = printEdition;
+            return this;
+        }
 
-    public String getPageStart() {
-        return pageStart;
-    }
+        public Builder setPrintPage(String printPage) {
+            this.printPage = printPage;
+            return this;
+        }
 
-    public String getPagination() {
-        return pagination;
-    }
+        public Builder setPrintSection(String printSection) {
+            this.printSection = printSection;
+            return this;
+        }
 
-    public Integer getWordCount() {
-        return wordCount;
-    }
 
-    public static class Builder extends CreativeWork.Builder {
-        private String articleBody;
-        private List<String> articleBodyAsList;
-        private List<String> articleSection;
-        private String pageEnd;
-        private String pageStart;
-        private String pagination;
-        private Integer wordCount;
-
+        /* overridden from Article*/
+        @Override
         public Builder setArticleBody(String articleBody) {
-            this.articleBody = articleBody;
+            super.setArticleBody(articleBody);
             return this;
         }
 
+        @Override
         public Builder setArticleBody(List<String> articleBodyAsList) {
-            this.articleBodyAsList = articleBodyAsList;
+            super.setArticleBody(articleBodyAsList);
             return this;
         }
 
+        @Override
         public Builder setArticleSection(List<String> articleSection) {
-            this.articleSection = articleSection;
+            super.setArticleSection(articleSection);
             return this;
         }
 
+        @Override
         public Builder setPageEnd(String pageEnd) {
-            this.pageEnd = pageEnd;
+            super.setPageEnd(pageEnd);
             return this;
         }
 
+        @Override
         public Builder setPageStart(String pageStart) {
-            this.pageStart = pageStart;
+            super.setPageStart(pageStart);
             return this;
         }
 
+        @Override
         public Builder setPagination(String pagination) {
-            this.pagination = pagination;
+            super.setPagination(pagination);
             return this;
         }
 
+        @Override
         public Builder setWordCount(Integer wordCount) {
-            this.wordCount = wordCount;
+            super.setWordCount(wordCount);
             return this;
         }
 
-        // inherited from CreativeWork
+
         @Override
         public Builder setAbout(Thing about) {
             super.setAbout(about);
@@ -319,6 +367,7 @@ public class Article extends CreativeWork {
             return this;
         }
 
+
         @Override
         public Builder setMentions(List<Thing> mentions) {
             super.setMentions(mentions);
@@ -331,7 +380,6 @@ public class Article extends CreativeWork {
             return this;
         }
 
-        @Override
         public Builder setPublisher(Organization publisher) {
             super.setPublisher(publisher);
             return this;
@@ -404,8 +452,8 @@ public class Article extends CreativeWork {
         }
 
         /*
-                Following lines override the Parent Thing Builder
-                 */
+        Following lines override the Parent Thing Builder
+         */
         @Override
         public Builder setAdditionalType(String additionalType) {
             super.setAdditionalType(additionalType);
@@ -424,11 +472,11 @@ public class Article extends CreativeWork {
             return this;
         }
 
-        @Override
-        public Builder setImage(String image) {
-            super.setImage(image);
-            return this;
-        }
+//        @Override
+//        public Builder setImage(String image) {
+//            super.setImage(image);
+//            return this;
+//        }
 
         @Override
         public Builder setImage(ImageObject image) {
@@ -472,10 +520,10 @@ public class Article extends CreativeWork {
             return this;
         }
 
-
         @Override
-        public Article build() {
-            return new Article(this);
+        public NewsArticle build() {
+            return new NewsArticle(this);
         }
+
     }
 }

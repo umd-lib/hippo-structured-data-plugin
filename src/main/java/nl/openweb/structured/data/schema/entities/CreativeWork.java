@@ -609,6 +609,9 @@ public class CreativeWork extends Thing {
             return this;
         }
 
+        /*
+                Following lines override the Parent Thing Builder
+                 */
         @Override
         public Builder setAdditionalType(String additionalType) {
             super.setAdditionalType(additionalType);
@@ -624,12 +627,6 @@ public class CreativeWork extends Thing {
         @Override
         public Builder setDescription(String description) {
             super.setDescription(description);
-            return this;
-        }
-
-        @Override
-        public Builder setId(String id) {
-            super.setId(id);
             return this;
         }
 
@@ -658,6 +655,12 @@ public class CreativeWork extends Thing {
         }
 
         @Override
+        public Builder setPotentialAction(Action potentialAction) {
+            super.setPotentialAction(potentialAction);
+            return this;
+        }
+
+        @Override
         public Builder setSameAs(String sameAs) {
             super.setSameAs(sameAs);
             return this;
@@ -666,6 +669,12 @@ public class CreativeWork extends Thing {
         @Override
         public Builder setUrl(String url) {
             super.setUrl(url);
+            return this;
+        }
+
+        @Override
+        public Builder setId(String id) {
+            super.setId(id);
             return this;
         }
 

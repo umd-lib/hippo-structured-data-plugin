@@ -70,6 +70,12 @@ public class BreadcrumbList extends ItemList {
         }
 
         @Override
+        public Builder setImage(ImageObject image) {
+            super.setImage(image);
+            return this;
+        }
+
+        @Override
         public Builder setMainEntityOfPage(String mainEntityOfPage) {
             super.setMainEntityOfPage(mainEntityOfPage);
             return this;
