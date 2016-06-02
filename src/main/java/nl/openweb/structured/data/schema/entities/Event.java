@@ -1,9 +1,9 @@
 package nl.openweb.structured.data.schema.entities;
 
-import org.codehaus.jackson.annotate.JsonProperty;
-
 import java.util.Calendar;
 import java.util.Date;
+
+import org.codehaus.jackson.annotate.JsonProperty;
 
 public class Event extends Thing {
     private Calendar startDate;

@@ -46,7 +46,6 @@ public class Comment extends CreativeWork {
         }
 
 
-
         @Override
         public Comment build() {
             return new Comment(this);

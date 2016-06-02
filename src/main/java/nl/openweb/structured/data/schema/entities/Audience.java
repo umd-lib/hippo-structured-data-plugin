@@ -1,13 +1,11 @@
 package nl.openweb.structured.data.schema.entities;
 
 /**
- *
  * Intended audience for an item, i.e. the group for whom the item was created.
- *
+ * <p>
  * Thing > Intangible > Audience
  *
  * @author Texelz (by Onhate)
- *
  */
 public class Audience extends Intangible {
 
@@ -17,7 +15,7 @@ public class Audience extends Intangible {
     protected Audience(Builder builder) {
         super(builder);
         this.audienceType = builder.audienceType;
-        this.geographicArea=builder.geographicArea;
+        this.geographicArea = builder.geographicArea;
     }
 
     /**
@@ -48,6 +46,7 @@ public class Audience extends Intangible {
             this.geographicArea = geographicArea;
             return this;
         }
+
         /*
         Following lines override the Parent Thing Builder
          */
@@ -95,7 +94,7 @@ public class Audience extends Intangible {
 
         @Override
         public Builder setPotentialAction(Action potentialAction) {
-            super.setPotentialAction( potentialAction);
+            super.setPotentialAction(potentialAction);
             return this;
         }
 
@@ -116,7 +115,6 @@ public class Audience extends Intangible {
             super.setId(id);
             return this;
         }
-
 
 
         @Override

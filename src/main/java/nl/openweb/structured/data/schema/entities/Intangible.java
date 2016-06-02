@@ -55,7 +55,7 @@ public class Intangible extends Thing {
 
         @Override
         public Builder setPotentialAction(Action potentialAction) {
-            super.setPotentialAction( potentialAction);
+            super.setPotentialAction(potentialAction);
             return this;
         }
 

@@ -7,7 +7,7 @@ import java.util.List;
  * A news article
  *
  * @author Texelz (by Onhate)
- * Thing > CreativeWork > Article > NewsArticle
+ *         Thing > CreativeWork > Article > NewsArticle
  */
 public class NewsArticle extends Article {
 

@@ -2,13 +2,11 @@ package nl.openweb.structured.data.schema.entities;
 
 
 /**
- *
  * A geographical region under the jurisdiction of a particular government.
- *
+ * <p>
  * Thing > Place > AdministrativeArea
  *
  * @author Texelz (by Onhate)
- *
  */
 public class AdministrativeArea extends Place {
 

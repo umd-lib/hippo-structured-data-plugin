@@ -1,11 +1,10 @@
 package nl.openweb.structured.data.schema.entities;
 
-public class Thing  extends AbstractEntity {
+public class Thing extends AbstractEntity {
     private String additionalType;
     private String alternateName;
     private String description;
-    private ImageObject image;
-    private String imageAsString;
+    private Object image;
     private String mainEntityOfPage;
     private String name;
     private Action potentialAction;
@@ -18,7 +17,6 @@ public class Thing  extends AbstractEntity {
         this.alternateName = builder.alternateName;
         this.description = builder.description;
         this.image = builder.image;
-        this.imageAsString = builder.imageAsString;
         this.mainEntityOfPage = builder.mainEntityOfPage;
         this.name = builder.name;
         this.potentialAction = builder.potentialAction;
@@ -44,7 +42,9 @@ public class Thing  extends AbstractEntity {
         return description;
     }
 
-    public Object getImage() {        return image==null?imageAsString:image;    }
+    public Object getImage() {
+        return image;
+    }
 
     public String getMainEntityOfPage() {
         return mainEntityOfPage;
@@ -54,7 +54,9 @@ public class Thing  extends AbstractEntity {
         return name;
     }
 
-    public Action getPotentialAction() {return potentialAction; }
+    public Action getPotentialAction() {
+        return potentialAction;
+    }
 
     public String getSameAs() {
         return sameAs;
@@ -65,13 +67,11 @@ public class Thing  extends AbstractEntity {
     }
 
 
-
     public static class Builder {
         private String additionalType;
         private String alternateName;
         private String description;
-        private ImageObject image;
-        private String imageAsString;
+        private Object image;
         private String mainEntityOfPage;
         private String name;
         private Action potentialAction;
@@ -101,7 +101,7 @@ public class Thing  extends AbstractEntity {
         }
 
         public Builder setImage(String image) {
-            this.imageAsString = image;
+            this.image = image;
             return this;
         }
 

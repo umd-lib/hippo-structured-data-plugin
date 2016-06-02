@@ -140,9 +140,10 @@ public class CreativeWork extends Thing {
         return alternativeHeadline;
     }
 
-    public Object getAuthor(){
+    public Object getAuthor() {
         return author;
     }
+
     public String getAward() {
         return award;
     }
@@ -394,12 +395,12 @@ public class CreativeWork extends Thing {
             return this;
         }
 
-        public Builder setAuthor(Person author){
+        public Builder setAuthor(Person author) {
             this.author = author;
             return this;
         }
 
-        public Builder setAuthor(Organization author){
+        public Builder setAuthor(Organization author) {
             this.author = author;
             return this;
         }
@@ -549,12 +550,12 @@ public class CreativeWork extends Thing {
             return this;
         }
 
-        public Builder setPublisher(Organization publisher){
+        public Builder setPublisher(Organization publisher) {
             this.publisher = publisher;
             return this;
         }
 
-        public Builder setPublisher(Person publisher){
+        public Builder setPublisher(Person publisher) {
             this.publisher = publisher;
             return this;
         }

@@ -46,7 +46,6 @@ public class Product extends Thing {
     //private 	Distance  or QuantitativeValue 	width 	;
 
 
-
     protected Product(Builder builder) {
         super(builder);
         this.aggregateRating = builder.aggregateRating;
@@ -75,7 +74,6 @@ public class Product extends Thing {
         this.sku = builder.sku;
         this.weight = builder.weight;
     }
-
 
 
     public AggregateRating getAggregateRating() {
@@ -377,7 +375,7 @@ public class Product extends Thing {
 
         @Override
         public Builder setPotentialAction(Action potentialAction) {
-            super.setPotentialAction( potentialAction);
+            super.setPotentialAction(potentialAction);
             return this;
         }
 
