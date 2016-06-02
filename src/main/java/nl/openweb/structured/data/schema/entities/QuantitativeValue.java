@@ -1,6 +1,6 @@
 package nl.openweb.structured.data.schema.entities;
 
-public class QuantitativeValue extends StructuredValue{
+public class QuantitativeValue extends StructuredValue {
     private String additionalProperty;
     private int maxValue;
     private int minValue;

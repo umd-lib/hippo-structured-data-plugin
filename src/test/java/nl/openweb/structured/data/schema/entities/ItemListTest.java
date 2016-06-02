@@ -8,11 +8,13 @@ import java.util.TimeZone;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ArrayNode;
+
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import nl.openweb.structured.data.AbstractStructuredDataTest;
 import nl.openweb.structured.data.domain.EventBean;
 import nl.openweb.structured.data.domain.LocationBean;
 import nl.openweb.structured.data.utils.VerificationUtils;
@@ -20,7 +22,7 @@ import nl.openweb.structured.data.utils.VerificationUtils;
 
 import static org.junit.Assert.assertNotEquals;
 
-public class ItemListTest extends AbstractEntityTest {
+public class ItemListTest extends AbstractStructuredDataTest {
 
     private static final Logger LOG = LoggerFactory.getLogger(ItemListTest.class);
     private static List<EventBean> list;

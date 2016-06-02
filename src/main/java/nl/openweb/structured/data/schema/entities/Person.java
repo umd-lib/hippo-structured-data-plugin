@@ -579,6 +579,12 @@ public class Person extends Thing {
         }
 
         @Override
+        public Builder setPotentialAction(Action potentialAction) {
+            super.setPotentialAction(potentialAction);
+            return this;
+        }
+
+        @Override
         public Builder setSameAs(String sameAs) {
             super.setSameAs(sameAs);
             return this;

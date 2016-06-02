@@ -1,12 +1,13 @@
 package nl.openweb.structured.data.schema.entities;
 
-public class Thing implements StructuredData {
+public class Thing extends AbstractEntity {
     private String additionalType;
     private String alternateName;
     private String description;
     private Object image;
     private String mainEntityOfPage;
     private String name;
+    private Action potentialAction;
     private String sameAs;
     private String url;
     private String id;
@@ -18,19 +19,10 @@ public class Thing implements StructuredData {
         this.image = builder.image;
         this.mainEntityOfPage = builder.mainEntityOfPage;
         this.name = builder.name;
+        this.potentialAction = builder.potentialAction;
         this.sameAs = builder.sameAs;
         this.url = builder.url;
         this.id = builder.id;
-    }
-
-    @Override
-    public String getContext() {
-        return "http://schema.org";
-    }
-
-    @Override
-    public String getType() {
-        return getClass().getSimpleName();
     }
 
     @Override
@@ -62,6 +54,10 @@ public class Thing implements StructuredData {
         return name;
     }
 
+    public Action getPotentialAction() {
+        return potentialAction;
+    }
+
     public String getSameAs() {
         return sameAs;
     }
@@ -71,7 +67,6 @@ public class Thing implements StructuredData {
     }
 
 
-
     public static class Builder {
         private String additionalType;
         private String alternateName;
@@ -79,9 +74,16 @@ public class Thing implements StructuredData {
         private Object image;
         private String mainEntityOfPage;
         private String name;
+        private Action potentialAction;
         private String sameAs;
         private String url;
         private String id;
+
+
+        public Builder setPotentialAction(Action potentialAction) {
+            this.potentialAction = potentialAction;
+            return this;
+        }
 
         public Builder setAdditionalType(String additionalType) {
             this.additionalType = additionalType;

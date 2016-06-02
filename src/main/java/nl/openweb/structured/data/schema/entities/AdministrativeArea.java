@@ -1,59 +1,30 @@
 package nl.openweb.structured.data.schema.entities;
 
-public class ListItem extends Intangible {
 
-    private Thing item;
-    private ListItem nextItem;
-    private Integer position;
-    private ListItem previousItem;
+/**
+ * A geographical region under the jurisdiction of a particular government.
+ * <p>
+ * Thing > Place > AdministrativeArea
+ *
+ * @author Texelz (by Onhate)
+ */
+public class AdministrativeArea extends Place {
 
-    protected ListItem(Builder builder) {
+    protected AdministrativeArea(Builder builder) {
         super(builder);
-        this.item = builder.item;
-        this.nextItem = builder.nextItem;
-        this.position = builder.position;
-        this.previousItem = builder.previousItem;
     }
 
-    public Thing getItem() {
-        return item;
-    }
+    public static class Builder extends Place.Builder {
 
-    public ListItem getNextItem() {
-        return nextItem;
-    }
-
-    public Integer getPosition() {
-        return position;
-    }
-
-    public ListItem getPreviousItem() {
-        return previousItem;
-    }
-
-    public static class Builder extends Intangible.Builder {
-        private Thing item;
-        private ListItem nextItem;
-        private Integer position;
-        private ListItem previousItem;
-
-        public Builder setItem(Thing item) {
-            this.item = item;
+        @Override
+        public Builder setAddress(PostalAddress address) {
+            super.setAddress(address);
             return this;
         }
 
-        public Builder setNextItem(ListItem nextItem) {
-            this.nextItem = nextItem;
-            return this;
-        }
-
-        public Builder setPosition(Integer position) {
-            this.position = position;
-            return this;
-        }
-
-        public Builder setPreviousItem(ListItem previousItem) {
-            this.previousItem = previousItem;
+        @Override
+        public Builder setAddress(String address) {
+            super.setAddress(address);
             return this;
         }
 
@@ -100,6 +71,12 @@ public class ListItem extends Intangible {
         }
 
         @Override
+        public Builder setPotentialAction(Action potentialAction) {
+            super.setPotentialAction(potentialAction);
+            return this;
+        }
+
+        @Override
         public Builder setSameAs(String sameAs) {
             super.setSameAs(sameAs);
             return this;
@@ -118,8 +95,8 @@ public class ListItem extends Intangible {
         }
 
         @Override
-        public ListItem build() {
-            return new ListItem(this);
+        public AdministrativeArea build() {
+            return new AdministrativeArea(this);
         }
     }
 

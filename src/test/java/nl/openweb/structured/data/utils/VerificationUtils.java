@@ -3,6 +3,7 @@ package nl.openweb.structured.data.utils;
 import java.text.DateFormat;
 
 import com.fasterxml.jackson.databind.JsonNode;
+
 import org.junit.Assert;
 
 import nl.openweb.structured.data.domain.BreadcrumbItem;
@@ -40,6 +41,6 @@ public class VerificationUtils {
     }
 
     private static String getProperty(JsonNode jsonNode, String propertyName) {
-        return jsonNode.get(propertyName).asText();
+        return jsonNode.get(propertyName) == null ? "NULL" : jsonNode.get(propertyName).asText();
     }
 }

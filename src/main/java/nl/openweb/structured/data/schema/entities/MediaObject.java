@@ -22,12 +22,12 @@ public class MediaObject extends CreativeWork {
         private QuantitativeValue height;
         private QuantitativeValue width;
 
-        public Builder setHeight(QuantitativeValue height){
+        public Builder setHeight(QuantitativeValue height) {
             this.height = height;
             return this;
         }
 
-        public Builder setWidth(QuantitativeValue width){
+        public Builder setWidth(QuantitativeValue width) {
             this.width = width;
             return this;
         }

@@ -12,13 +12,14 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import nl.openweb.structured.data.AbstractStructuredDataTest;
 import nl.openweb.structured.data.domain.BreadcrumbItem;
 import nl.openweb.structured.data.utils.VerificationUtils;
 
 
 import static org.junit.Assert.assertTrue;
 
-public class BreadcrumbListTest extends AbstractEntityTest{
+public class BreadcrumbListTest extends AbstractStructuredDataTest {
     private static final String BREADCRUMBLIST_MAPPER_NAME = "breadcrumbList";
     private static final Logger LOG = LoggerFactory.getLogger(BreadcrumbListTest.class);
 

@@ -1,6 +1,6 @@
 package nl.openweb.structured.data.schema.entities;
 
-public class PostalAddress extends ContactPoint{
+public class PostalAddress extends ContactPoint {
 
     private String addressCountry;
     private String addressLocality;

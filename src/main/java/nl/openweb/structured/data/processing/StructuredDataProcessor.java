@@ -41,13 +41,13 @@ public class StructuredDataProcessor {
 
         for (StructuredDataMapper structuredDataMapper : dataMappers.values()) {
             Class type = structuredDataMapper.getType();
-            if(type != null) {
+            if (type != null) {
                 dataMapperMap.put(type, Optional.of(structuredDataMapper));
             }
         }
     }
 
-    public <T> String getStructuredDataAsJsonString(T bean){
+    public <T> String getStructuredDataAsJsonString(T bean) {
         return getStructuredDataAsJsonString(bean, null);
     }
 
@@ -65,7 +65,7 @@ public class StructuredDataProcessor {
         try {
             try (StringWriter writer = new StringWriter()) {
                 StructuredData data = structuredDataMapper.transform(bean);
-                if(data != null) {
+                if (data != null) {
                     objectMapper.writeValue(writer, data);
                     result = writer.toString();
                 }
@@ -88,12 +88,12 @@ public class StructuredDataProcessor {
         return mapper;
     }
 
-    public Optional<StructuredDataMapper> getMapperByName(String mapperName){
+    public Optional<StructuredDataMapper> getMapperByName(String mapperName) {
         Optional<StructuredDataMapper> result;
         StructuredDataMapper mapper = HstServices.getComponentManager().getComponent(mapperName);
-        if(mapper != null){
+        if (mapper != null) {
             result = Optional.of(mapper);
-        }else{
+        } else {
             LOG.error("Unknown name [{}] for mapper, check your configuration.", mapperName);
             result = Optional.absent();
         }

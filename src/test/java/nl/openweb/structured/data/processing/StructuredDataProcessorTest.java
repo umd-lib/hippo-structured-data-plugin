@@ -12,14 +12,14 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.NoSuchBeanDefinitionException;
 
+import nl.openweb.structured.data.AbstractStructuredDataTest;
 import nl.openweb.structured.data.domain.EventBean;
 import nl.openweb.structured.data.domain.LocationBean;
 import nl.openweb.structured.data.domain.TrainingEventBean;
 import nl.openweb.structured.data.domain.UnknownBean;
-import nl.openweb.structured.data.schema.entities.AbstractEntityTest;
 import nl.openweb.structured.data.utils.VerificationUtils;
 
-public class StructuredDataProcessorTest extends AbstractEntityTest {
+public class StructuredDataProcessorTest extends AbstractStructuredDataTest {
 
     private static final Logger LOG = LoggerFactory.getLogger(StructuredDataProcessorTest.class);
 
