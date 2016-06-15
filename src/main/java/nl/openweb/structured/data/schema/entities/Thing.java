@@ -8,7 +8,7 @@ public class Thing extends AbstractEntity {
     private String mainEntityOfPage;
     private String name;
     private Action potentialAction;
-    private String sameAs;
+    private Object sameAs;
     private String url;
     private String id;
 
@@ -58,7 +58,7 @@ public class Thing extends AbstractEntity {
         return potentialAction;
     }
 
-    public String getSameAs() {
+    public Object getSameAs() {
         return sameAs;
     }
 
@@ -75,7 +75,7 @@ public class Thing extends AbstractEntity {
         private String mainEntityOfPage;
         private String name;
         private Action potentialAction;
-        private String sameAs;
+        private Object sameAs;
         private String url;
         private String id;
 
@@ -121,6 +121,11 @@ public class Thing extends AbstractEntity {
         }
 
         public Builder setSameAs(String sameAs) {
+            this.sameAs = sameAs;
+            return this;
+        }
+
+        public Builder setSameAs(String[] sameAs) {
             this.sameAs = sameAs;
             return this;
         }
