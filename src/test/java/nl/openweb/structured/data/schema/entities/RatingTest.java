@@ -29,7 +29,7 @@ public class RatingTest extends AbstractEntityTest{
 
     @Test
     public void testAssertPojo() throws Exception {
-        BuilderBeanAsserter.assertBean(Rating.class, "context", "type", "image","bestRating","worstRating");
+        BuilderBeanAsserter.assertBean(Rating.class, "context", "type", "image","bestRating","worstRating", "sameAs");
     }
 
     @Test

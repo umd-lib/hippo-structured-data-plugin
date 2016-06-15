@@ -29,7 +29,7 @@ public class ActionTest extends AbstractEntityTest{
 
     @Test
     public void testAssertPojo() throws Exception {
-        BuilderBeanAsserter.assertBean(Action.class, "context", "type", "image");
+        BuilderBeanAsserter.assertBean(Action.class, "context", "type", "image", "sameAs");
     }
 
     @Test

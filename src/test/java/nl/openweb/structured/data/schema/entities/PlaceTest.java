@@ -30,7 +30,7 @@ public class PlaceTest extends AbstractEntityTest{
     @Test
     public void testAssertPojo() throws Exception {
         // address is a special case that is tested in EventTest
-        BuilderBeanAsserter.assertBean(Place.class, "context", "type", "image", "address");
+        BuilderBeanAsserter.assertBean(Place.class, "context", "type", "image", "address", "sameAs");
     }
 
     @Test

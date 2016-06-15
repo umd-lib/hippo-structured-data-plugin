@@ -29,7 +29,7 @@ public class NewsArticleTest extends AbstractEntityTest{
 // Tests ignored because ancestors fail tests
     @Test
     public void testAssertPojo() throws Exception {
-        BuilderBeanAsserter.assertBean(NewsArticle.class, "context", "type", "image","articleBody", "author","publisher");
+        BuilderBeanAsserter.assertBean(NewsArticle.class, "context", "type", "image","articleBody", "author","publisher", "sameAs");
     }
 
     @Test

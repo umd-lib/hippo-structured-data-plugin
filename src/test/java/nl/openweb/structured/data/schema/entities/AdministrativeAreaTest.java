@@ -29,7 +29,7 @@ public class AdministrativeAreaTest extends AbstractEntityTest{
 
     @Test
     public void testAssertPojo() throws Exception {
-        BuilderBeanAsserter.assertBean(AdministrativeArea.class, "context", "type", "image", "address");
+        BuilderBeanAsserter.assertBean(AdministrativeArea.class, "context", "type", "image", "address", "sameAs");
     }
 
     @Test

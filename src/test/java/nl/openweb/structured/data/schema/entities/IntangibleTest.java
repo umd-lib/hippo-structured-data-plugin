@@ -29,7 +29,7 @@ public class IntangibleTest extends AbstractEntityTest{
 
     @Test
     public void testAssertPojo() throws Exception {
-        BuilderBeanAsserter.assertBean(Intangible.class, "context", "type", "image");
+        BuilderBeanAsserter.assertBean(Intangible.class, "context", "type", "image", "sameAs");
     }
 
     @Test
