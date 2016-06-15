@@ -4,7 +4,31 @@ This is an hst addon to providing structured data using json-ld.
 
 Usage
 ------
-Add dependency to Hippo Site
+Add Open Web repository, and structured-data dependency to Hippo Site  
+```XML
+<project>
+    ...
+  <repositories>
+    <repository>
+      <id>openweb-maven-releases</id>
+      <url>https://maven.open-web.nl/content/repositories/releases/</url>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+    </repository>
+  <repositories>
+  ...
+  <dependency>
+    <groupId>nl.openweb.hippo.hst</groupId>
+    <artifactId>structured-data</artifactId>
+    <version>10.0.02</version>
+  </dependency>
+</project>
+```
+
 Create mapper classes implementing the interface: _nl.openweb.structured.data.schema.mapping.StructuredDataMapper_
 
 Register them in spring
