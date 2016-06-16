@@ -111,4 +111,9 @@ public class StructuredDataProcessor {
         dataMapperMap.put(beanClass, result);
         return result;
     }
+
+    public static final StructuredDataProcessor get(){
+        StructuredDataProcessor processor = HstServices.getComponentManager().getComponent("structuredDataProcessor", "nl.openweb.structured.data");
+        return processor;
+    }
 }

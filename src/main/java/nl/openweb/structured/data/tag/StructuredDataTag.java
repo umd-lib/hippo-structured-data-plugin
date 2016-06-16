@@ -7,7 +7,6 @@ import javax.servlet.jsp.tagext.TagSupport;
 
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.core.component.HstRequest;
-import org.hippoecm.hst.site.HstServices;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -31,7 +30,7 @@ public class StructuredDataTag extends TagSupport {
         try {
             Object targetBean = getBean();
             if (targetBean != null) {
-                StructuredDataProcessor processor = HstServices.getComponentManager().getComponent("structuredDataProcessor", "nl.openweb.structured.data");
+                StructuredDataProcessor processor = StructuredDataProcessor.get();
                 String result = processor.getStructuredDataAsJsonString(targetBean, mapperId);
                 if (!result.isEmpty()) {
                     JspWriter out = pageContext.getOut();
