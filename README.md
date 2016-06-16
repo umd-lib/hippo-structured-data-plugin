@@ -39,16 +39,32 @@ Register them in spring
 Define the tag in your jsp
 ```XML 
 <%@ taglib prefix="opw-sd" uri="http://open-web.nl/hippo/structured-data"%>
-``` 
-To map the current contentbean
-```XML
-<opw-sd:ld-json/>
 ```
-Or to map a specific bean
-```XML
-<opw-sd:ld-json bean="${bean}"/>
+or freemarker:
+```FTL
+<#assign opw_sd=JspTaglibs ["http://open-web.nl/hippo/structured-data"] >
 ```
-Or to map an object using a named mapper
+To map the current contentbean in your jsp
 ```XML
-<opw-sd:ld-json bean="${breadcrumbList}" mapper="breadcrumbList"/>
+<opw-sd:ldJson/>
+```
+or freemarker:
+```FTL
+<@opw_sd:ldJson/>
+```
+Or to map a specific bean in your jsp
+```XML
+<opw-sd:ldJson bean="${bean}"/>
+```
+or freemarker:
+```FTL
+<@opw_sd:ldJson bean=breadcrumbList/>
+```
+Or to map an object using a named mapper in your jsp
+```XML
+<opw-sd:ldJson bean="${breadcrumbList}" mapper="breadcrumbList"/>
+```
+or freemarker:
+```FTL
+<@opw_sd:ldJson bean=breadcrumbList mapper=breadcrumbList/>
 ```
