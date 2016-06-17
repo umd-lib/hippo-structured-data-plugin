@@ -5,12 +5,15 @@ package nl.openweb.structured.data.schema.entities;
  */
 public abstract class AbstractEntity implements StructuredData {
 
+    @Override
     public abstract String getId();
 
+    @Override
     public String getContext() {
         return "http://schema.org";
     }
 
+    @Override
     public String getType() {
         return getClass().getSimpleName();
     }

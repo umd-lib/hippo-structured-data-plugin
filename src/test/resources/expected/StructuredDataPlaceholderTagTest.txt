@@ -1,0 +1,6 @@
+<script type="application/ld+json">
+{"name":"Pizza Night","url":"http://openweb.nl/pizza-night","startDate":"2016-02-09T23:00+0000","location":{"name":"Openweb Office","address":"Nevelgaarde 40, 3436 ZZ Nieuwegein","@context":"http://schema.org","@type":"Place"},"@context":"http://schema.org","@type":"Event"}
+</script>
+<script type="application/ld+json">
+{"name":"Team building","url":"http://openweb.nl/team-building","startDate":"2016-06-16T22:00+0000","location":{"name":"Openweb Office","address":"Nevelgaarde 40, 3436 ZZ Nieuwegein","@context":"http://schema.org","@type":"Place"},"@context":"http://schema.org","@type":"Event"}
+</script>

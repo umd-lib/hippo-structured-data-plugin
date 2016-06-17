@@ -3,38 +3,26 @@ package nl.openweb.structured.data.schema.entities;
 import java.util.Calendar;
 
 public class Product extends Thing {
-    //private PropertyValue additionalProperty;
+
     private AggregateRating aggregateRating;
     // Audience not yet implemented
     private Audience audience;
     private String award;
-    //	private 	String  or Thing 	category 	;
     private String category;
     private String color;
-    //	private 	Brand  or Organization 	brand 	;
     private Organization brand;
-    //	private 	Distance  or QuantitativeValue 	depth 	;
     private String gtin12;
     private String gtin13;
     private String gtin14;
     private String gtin8;
-    //	private 	Distance  or QuantitativeValue 	height 	;
     private Product isAccessoryOrSparePartFor;
     private Product isConsumableFor;
-    //	private 	Product  or Service 	isRelatedTo 	;
     private Product isRelatedTo;
-    //	private 	Product  or Service 	isSimilarTo 	;;
     private Product isSimilarTo;
-    // OfferItemCondition not yet implemented
-    // private 	OfferItemCondition 	itemCondition 	;
-    //	private 	ImageObject  or URL 	logo 	;
     private ImageObject logo;
     private Organization manufacturer;
-    //	private 	ProductModel  or String 	model 	;
     private String model;
     private String mpn;
-    // Offer not yet implemented
-    //private Offer offers;
     private String productID;
 
     private Calendar productionDate;
@@ -43,7 +31,6 @@ public class Product extends Thing {
     private Review review;
     private String sku;
     private QuantitativeValue weight;
-    //private 	Distance  or QuantitativeValue 	width 	;
 
 
     protected Product(Builder builder) {

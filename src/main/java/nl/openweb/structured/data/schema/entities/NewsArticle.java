@@ -380,6 +380,7 @@ public class NewsArticle extends Article {
             return this;
         }
 
+        @Override
         public Builder setPublisher(Organization publisher) {
             super.setPublisher(publisher);
             return this;

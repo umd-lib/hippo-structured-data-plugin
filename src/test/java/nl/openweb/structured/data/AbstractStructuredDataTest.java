@@ -1,18 +1,23 @@
 package nl.openweb.structured.data;
 
 
-import nl.openweb.structured.data.mock.MockComponentManager;
-import nl.openweb.structured.data.processing.StructuredDataProcessor;
-import org.codehaus.jackson.JsonNode;
-import org.codehaus.jackson.map.ObjectMapper;
-import org.hippoecm.hst.site.HstServices;
-import org.junit.Before;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.TimeZone;
+
+import org.codehaus.jackson.JsonNode;
+import org.codehaus.jackson.map.ObjectMapper;
+import org.hippoecm.hst.core.component.HstRequest;
+import org.hippoecm.hst.core.request.HstRequestContext;
+import org.hippoecm.hst.site.HstServices;
+import org.junit.Before;
+import org.mockito.Mockito;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import nl.openweb.structured.data.mock.MockComponentManager;
+import nl.openweb.structured.data.mock.MockRequest;
+import nl.openweb.structured.data.processing.StructuredDataProcessor;
 
 public abstract class AbstractStructuredDataTest {
 
@@ -42,6 +47,14 @@ public abstract class AbstractStructuredDataTest {
 
     protected String prettyPrint(JsonNode jsonNode) throws IOException {
         return objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(jsonNode);
+    }
+
+    protected HstRequest createMockHstRequest() {
+        HstRequest hstRequest = Mockito.mock(HstRequest.class);
+        HstRequestContext requestContext = Mockito.mock(HstRequestContext.class);
+        Mockito.when(hstRequest.getRequestContext()).thenReturn(requestContext);
+        Mockito.when(requestContext.getServletRequest()).thenReturn(new MockRequest());
+        return hstRequest;
     }
 
 }
