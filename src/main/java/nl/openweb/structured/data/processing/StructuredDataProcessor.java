@@ -31,7 +31,7 @@ public class StructuredDataProcessor {
 
     public void init() {
         // configuring objectMapper to ignore null properties
-        objectMapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
+        objectMapper.setSerializationInclusion(JsonInclude.Include.NON_EMPTY);
         DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mmZ");
         df.setTimeZone(TimeZone.getTimeZone("UTC"));
         objectMapper.setDateFormat(df);
