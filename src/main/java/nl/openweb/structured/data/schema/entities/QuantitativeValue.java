@@ -146,6 +146,7 @@ public class QuantitativeValue extends StructuredValue {
             return this;
         }
 
+        @Override
         public QuantitativeValue build() {
             return new QuantitativeValue(this);
         }

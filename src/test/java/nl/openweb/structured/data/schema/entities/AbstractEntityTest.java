@@ -2,6 +2,7 @@ package nl.openweb.structured.data.schema.entities;
 
 import java.util.Calendar;
 
+
 import static nl.ivonet.beanunit.Asserter.registerTypeAndDefaultArgument;
 
 /**

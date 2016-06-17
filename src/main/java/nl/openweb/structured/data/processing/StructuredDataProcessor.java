@@ -113,7 +113,6 @@ public class StructuredDataProcessor {
     }
 
     public static final StructuredDataProcessor get(){
-        StructuredDataProcessor processor = HstServices.getComponentManager().getComponent("structuredDataProcessor", "nl.openweb.structured.data");
-        return processor;
+        return HstServices.getComponentManager().getComponent("structuredDataProcessor", "nl.openweb.structured.data");
     }
 }

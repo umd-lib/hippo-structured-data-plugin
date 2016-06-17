@@ -16,9 +16,7 @@ public class EventMapper implements StructuredDataMapper<EventBean> {
         return new Event.Builder()
                 .setName(bean.getName())
                 .setLocation(StructuredDataUtils.getStructuredDataFor(bean.getLocation(), Place.class).get())
-                .setStartDate(bean.getStartDate())
-                .<Event.Builder>setUrl(bean.getUrl())
-                .setEndDate(bean.getEndDate()).build();
+                .setStartDate(bean.getStartDate()).<Event.Builder>setUrl(bean.getUrl()).setEndDate(bean.getEndDate()).build();
     }
 
     @Override

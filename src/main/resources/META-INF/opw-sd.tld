@@ -21,4 +21,28 @@
       <rtexprvalue>true</rtexprvalue>
     </attribute>
   </tag>
+  <tag>
+    <description>Contributes a ld+json structured data to the placeholder tag.</description>
+    <name>ldJsonContribution</name>
+    <tag-class>nl.openweb.structured.data.tag.StructuredDataContributionTag</tag-class>
+    <body-content>empty</body-content>
+    <attribute>
+      <description>The bean to make a mapping of</description>
+      <name>bean</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <description>The bean id for the mapper to map the bean with</description>
+      <name>mapper</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+  <tag>
+    <description>A placeholder tag where all the contributed structured data get printed.</description>
+    <name>structuredDataPlaceholder</name>
+    <tag-class>nl.openweb.structured.data.tag.StructuredDataPlaceholderTag</tag-class>
+    <body-content>empty</body-content>
+  </tag>
 </taglib>
