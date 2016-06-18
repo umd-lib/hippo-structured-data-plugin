@@ -20,8 +20,6 @@ import org.slf4j.LoggerFactory;
 import nl.openweb.structured.data.schema.entities.StructuredData;
 import nl.openweb.structured.data.schema.mapping.StructuredDataMapper;
 
-;
-
 @SuppressWarnings("unchecked")
 public class StructuredDataProcessor {
 
@@ -112,7 +110,7 @@ public class StructuredDataProcessor {
         return result;
     }
 
-    public static final StructuredDataProcessor get(){
+    public static final StructuredDataProcessor get() {
         return HstServices.getComponentManager().getComponent("structuredDataProcessor", "nl.openweb.structured.data");
     }
 }

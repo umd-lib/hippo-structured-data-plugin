@@ -11,6 +11,10 @@ import static nl.openweb.structured.data.tag.StructuredDataPlaceholderTag.STRUCT
 
 public class ContributeStructuredData {
 
+    private ContributeStructuredData() {
+        // private constructor
+    }
+
     public static void contributeBean(Object bean, HstRequest request) {
         contributeBean(bean, null, request);
     }
