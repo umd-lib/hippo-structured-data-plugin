@@ -2,8 +2,7 @@ package nl.openweb.structured.data.mapper;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import com.google.common.base.Optional;
+import java.util.Optional;
 
 import org.hippoecm.hst.site.HstServices;
 

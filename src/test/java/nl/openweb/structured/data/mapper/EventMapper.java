@@ -15,7 +15,7 @@ public class EventMapper implements StructuredDataMapper<EventBean> {
         LocationMapper locationMapper = HstServices.getComponentManager().getComponent(LocationMapper.class);
         return new Event.Builder()
                 .setName(bean.getName())
-                .setLocation(StructuredDataUtils.getStructuredDataFor(bean.getLocation(), Place.class).get())
+                .setLocation(StructuredDataUtils.getStructuredDataFor(bean.getLocation(), Place.class))
                 .setStartDate(bean.getStartDate()).<Event.Builder>setUrl(bean.getUrl()).setEndDate(bean.getEndDate()).build();
     }
 

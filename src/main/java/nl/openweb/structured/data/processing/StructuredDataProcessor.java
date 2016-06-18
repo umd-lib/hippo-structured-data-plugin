@@ -5,12 +5,12 @@ import java.io.StringWriter;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Map;
+import java.util.Optional;
 import java.util.TimeZone;
 import java.util.concurrent.ConcurrentHashMap;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.google.common.base.Optional;
 
 import org.apache.commons.lang.StringUtils;
 import org.hippoecm.hst.site.HstServices;
@@ -93,24 +93,22 @@ public class StructuredDataProcessor {
             result = Optional.of(mapper);
         } else {
             LOG.error("Unknown name [{}] for mapper, check your configuration.", mapperName);
-            result = Optional.absent();
+            result = Optional.empty();
         }
         return result;
     }
 
     private Optional<StructuredDataMapper> findInheritedMapper(Class beanClass) {
-        Optional<StructuredDataMapper> result = Optional.absent();
-        for (Optional<StructuredDataMapper> structuredDataMapper : dataMapperMap.values()) {
-            if (structuredDataMapper.isPresent() && structuredDataMapper.get().getType().isAssignableFrom(beanClass)) {
-                result = structuredDataMapper;
-                break;
-            }
-        }
+        Optional<StructuredDataMapper> result = dataMapperMap.values().stream()
+                .filter(Optional::isPresent).map(Optional::get)
+                .filter(mapper -> mapper.getType().isAssignableFrom(beanClass))
+                .findFirst();
+
         dataMapperMap.put(beanClass, result);
         return result;
     }
 
-    public static final StructuredDataProcessor get() {
+    public static StructuredDataProcessor get() {
         return HstServices.getComponentManager().getComponent("structuredDataProcessor", "nl.openweb.structured.data");
     }
 }
