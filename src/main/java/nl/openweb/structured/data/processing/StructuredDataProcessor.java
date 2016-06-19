@@ -102,6 +102,15 @@ public class StructuredDataProcessor {
         Optional<StructuredDataMapper> result = dataMapperMap.values().stream()
                 .filter(Optional::isPresent).map(Optional::get)
                 .filter(mapper -> mapper.getType().isAssignableFrom(beanClass))
+                .sorted((a, b) -> {
+                    int r = 0;
+                    if (a.getType().isAssignableFrom(b.getType())) {
+                        r = 1;
+                    } else if (b.getType().isAssignableFrom(a.getType())) {
+                        r = -1;
+                    }
+                    return r;
+                })
                 .findFirst();
 
         dataMapperMap.put(beanClass, result);
