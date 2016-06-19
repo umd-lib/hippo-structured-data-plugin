@@ -26,7 +26,7 @@ public class StructuredDataUtils {
         H result = null;
         Optional<StructuredDataMapper> mapper = StringUtils.isNotBlank(name) ? StructuredDataProcessor.get().getMapperByName(name)
                 : StructuredDataProcessor.get().getMapperFor(bean);
-        if (mapper.isPresent()) {
+        if (mapper.isPresent() && bean != null) {
             StructuredData structuredData = mapper.get().transform(bean);
             if (structuredData != null && structuredData.getClass().isAssignableFrom(clazz)) {
                 result = (H) structuredData;
