@@ -1,15 +1,17 @@
 package nl.openweb.structured.data.mapper;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.google.common.base.Optional;
+
+import org.hippoecm.hst.site.HstServices;
+
 import nl.openweb.structured.data.processing.StructuredDataProcessor;
 import nl.openweb.structured.data.schema.entities.ItemList;
 import nl.openweb.structured.data.schema.entities.StructuredData;
 import nl.openweb.structured.data.schema.entities.Thing;
 import nl.openweb.structured.data.schema.mapping.StructuredDataMapper;
-import org.hippoecm.hst.site.HstServices;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class ItemListMapper implements StructuredDataMapper<List> {
 

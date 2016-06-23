@@ -1,15 +1,15 @@
 package nl.openweb.structured.data.schema.entities;
 
-import nl.ivonet.beanunit.BuilderBeanAsserter;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import nl.ivonet.beanunit.BuilderBeanAsserter;
+
+
 import static nl.ivonet.beanunit.Asserter.resetToDefaultTypes;
 import static nl.ivonet.beanunit.BuilderBeanAsserter.createObject;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
+import static org.junit.Assert.*;
 
 /**
  * Created by Pim Schrama on 5/18/2016.
@@ -29,7 +29,7 @@ public class NewsArticleTest extends AbstractEntityTest{
 // Tests ignored because ancestors fail tests
     @Test
     public void testAssertPojo() throws Exception {
-        BuilderBeanAsserter.assertBean(NewsArticle.class, "context", "type", "image","articleBody", "author","publisher");
+        BuilderBeanAsserter.assertBean(NewsArticle.class, "context", "type", "image","articleBody", "author","publisher", "sameAs");
     }
 
     @Test

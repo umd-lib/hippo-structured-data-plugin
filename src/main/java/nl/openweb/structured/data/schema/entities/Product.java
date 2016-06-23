@@ -373,6 +373,12 @@ public class Product extends Thing {
         }
 
         @Override
+        public Thing.Builder setSameAs(String[] sameAs) {
+            super.setSameAs(sameAs);
+            return this;
+        }
+
+        @Override
         public Builder setUrl(String url) {
             super.setUrl(url);
             return this;

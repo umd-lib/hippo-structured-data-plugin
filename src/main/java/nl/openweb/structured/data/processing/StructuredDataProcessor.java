@@ -29,7 +29,7 @@ public class StructuredDataProcessor {
 
     public void init() {
         // configuring objectMapper to ignore null properties
-        objectMapper.setSerializationInclusion(JsonSerialize.Inclusion.NON_NULL);
+        objectMapper.setSerializationInclusion(JsonSerialize.Inclusion.NON_EMPTY);
         DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mmZ");
         df.setTimeZone(TimeZone.getTimeZone("UTC"));
         objectMapper.setDateFormat(df);
@@ -102,11 +102,17 @@ public class StructuredDataProcessor {
         Optional<StructuredDataMapper> result = Optional.absent();
         for (Optional<StructuredDataMapper> structuredDataMapper : dataMapperMap.values()) {
             if (structuredDataMapper.isPresent() && structuredDataMapper.get().getType().isAssignableFrom(beanClass)) {
-                result = structuredDataMapper;
-                break;
+                if (result == null ||
+                        result.get().getType().isAssignableFrom(structuredDataMapper.get().getType())) {
+                    result = structuredDataMapper;
+                }
             }
         }
         dataMapperMap.put(beanClass, result);
         return result;
+    }
+
+    public static StructuredDataProcessor get() {
+        return HstServices.getComponentManager().getComponent("structuredDataProcessor", "nl.openweb.structured.data");
     }
 }

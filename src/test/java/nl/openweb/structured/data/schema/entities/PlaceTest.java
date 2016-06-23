@@ -1,9 +1,11 @@
 package nl.openweb.structured.data.schema.entities;
 
-import nl.ivonet.beanunit.BuilderBeanAsserter;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+
+import nl.ivonet.beanunit.BuilderBeanAsserter;
+
 
 import static nl.ivonet.beanunit.Asserter.resetToDefaultTypes;
 import static nl.ivonet.beanunit.BuilderBeanAsserter.createObject;
@@ -28,7 +30,7 @@ public class PlaceTest extends AbstractEntityTest{
     @Test
     public void testAssertPojo() throws Exception {
         // address is a special case that is tested in EventTest
-        BuilderBeanAsserter.assertBean(Place.class, "context", "type", "image", "address");
+        BuilderBeanAsserter.assertBean(Place.class, "context", "type", "image", "address", "sameAs");
     }
 
     @Test

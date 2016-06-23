@@ -1,13 +1,16 @@
 package nl.openweb.structured.data.schema.entities;
 
-import nl.ivonet.beanunit.BuilderBeanAsserter;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import nl.ivonet.beanunit.BuilderBeanAsserter;
+
+
 import static nl.ivonet.beanunit.Asserter.resetToDefaultTypes;
 import static nl.ivonet.beanunit.BuilderBeanAsserter.createObject;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 /**
  * Created by Pim Schrama on 5/18/2016.
@@ -26,7 +29,7 @@ public class IntangibleTest extends AbstractEntityTest{
 
     @Test
     public void testAssertPojo() throws Exception {
-        BuilderBeanAsserter.assertBean(Intangible.class, "context", "type", "image");
+        BuilderBeanAsserter.assertBean(Intangible.class, "context", "type", "image", "sameAs");
     }
 
     @Test

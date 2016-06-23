@@ -1,9 +1,11 @@
 package nl.openweb.structured.data.schema.entities;
 
-import nl.ivonet.beanunit.BuilderBeanAsserter;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+
+import nl.ivonet.beanunit.BuilderBeanAsserter;
+
 
 import static nl.ivonet.beanunit.Asserter.resetToDefaultTypes;
 import static nl.ivonet.beanunit.BuilderBeanAsserter.createObject;
@@ -27,7 +29,7 @@ public class ThingTest extends AbstractEntityTest{
 
     @Test
     public void testAssertPojo() throws Exception {
-        BuilderBeanAsserter.assertBean(Thing.class, "context", "type", "image");
+        BuilderBeanAsserter.assertBean(Thing.class, "context", "type", "image", "sameAs");
     }
 
     @Test

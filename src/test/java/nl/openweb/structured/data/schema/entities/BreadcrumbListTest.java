@@ -1,8 +1,9 @@
 package nl.openweb.structured.data.schema.entities;
 
-import nl.openweb.structured.data.AbstractStructuredDataTest;
-import nl.openweb.structured.data.domain.BreadcrumbItem;
-import nl.openweb.structured.data.utils.VerificationUtils;
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
+
 import org.apache.commons.collections.ListUtils;
 import org.codehaus.jackson.JsonNode;
 import org.codehaus.jackson.node.ArrayNode;
@@ -10,9 +11,10 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.IOException;
-import java.util.Arrays;
-import java.util.List;
+import nl.openweb.structured.data.AbstractStructuredDataTest;
+import nl.openweb.structured.data.domain.BreadcrumbItem;
+import nl.openweb.structured.data.utils.VerificationUtils;
+
 
 import static org.junit.Assert.assertTrue;
 

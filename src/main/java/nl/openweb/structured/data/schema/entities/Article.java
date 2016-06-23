@@ -403,9 +403,7 @@ public class Article extends CreativeWork {
             return this;
         }
 
-        /*
-                Following lines override the Parent Thing Builder
-                 */
+        // Following lines override the Parent Thing Builder
         @Override
         public Builder setAdditionalType(String additionalType) {
             super.setAdditionalType(additionalType);
@@ -456,6 +454,12 @@ public class Article extends CreativeWork {
 
         @Override
         public Builder setSameAs(String sameAs) {
+            super.setSameAs(sameAs);
+            return this;
+        }
+
+        @Override
+        public Thing.Builder setSameAs(String[] sameAs) {
             super.setSameAs(sameAs);
             return this;
         }

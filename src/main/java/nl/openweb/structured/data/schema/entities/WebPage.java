@@ -3,47 +3,116 @@ package nl.openweb.structured.data.schema.entities;
 import java.util.Calendar;
 import java.util.List;
 
-public class Answer extends CreativeWork {
-    private Integer downvoteCount;
-    private Question upvoteCount;
-    private Integer parentItem;
+public class WebPage extends CreativeWork {
 
-    protected Answer(Builder builder) {
+    private Object breadcrumb;
+    private Calendar lastReviewed;
+    private WebPageElement mainContentOfPage;
+    private ImageObject primaryImageOfPage;
+    private String relatedLink;
+    private Thing reviewedBy;
+    private String significantLink;
+    private Specialty specialty;
+
+    protected WebPage(Builder builder) {
         super(builder);
-        this.downvoteCount = builder.downvoteCount;
-        this.parentItem = builder.parentItem;
-        this.upvoteCount = builder.upvoteCount;
+
+        this.breadcrumb = builder.breadcrumb;
+        this.lastReviewed = builder.lastReviewed;
+        this.mainContentOfPage = builder.mainContentOfPage;
+        this.primaryImageOfPage = builder.primaryImageOfPage;
+        this.relatedLink = builder.relatedLink;
+        this.reviewedBy = builder.reviewedBy;
+        this.significantLink = builder.significantLink;
+        this.specialty = builder.specialty;
     }
 
-    public Integer getDownvoteCount() {
-        return downvoteCount;
+    public Object getBreadcrumb() {
+        return breadcrumb;
     }
 
-    public Integer getParentItem() {
-        return parentItem;
+    public Calendar getLastReviewed() {
+        return lastReviewed;
     }
 
-    public Question getUpvoteCount() {
-        return upvoteCount;
+    public WebPageElement getMainContentOfPage() {
+        return mainContentOfPage;
     }
 
-    public class Builder extends CreativeWork.Builder {
-        private Integer downvoteCount;
-        private Integer parentItem;
-        private Question upvoteCount;
+    public ImageObject getPrimaryImageOfPage() {
+        return primaryImageOfPage;
+    }
 
-        public Builder setDownvoteCount(Integer downvoteCount) {
-            this.downvoteCount = downvoteCount;
-            return this;
+    public String getRelatedLink() {
+        return relatedLink;
+    }
+
+    public Thing getReviewedBy() {
+        return reviewedBy;
+    }
+
+    public String getSignificantLink() {
+        return significantLink;
+    }
+
+    public Specialty getSpecialty() {
+        return specialty;
+    }
+
+    public static class Builder extends CreativeWork.Builder {
+        private Object breadcrumb;
+        private Calendar lastReviewed;
+        private WebPageElement mainContentOfPage;
+        private ImageObject primaryImageOfPage;
+        private String relatedLink;
+        private Thing reviewedBy;
+        private String significantLink;
+        private Specialty specialty;
+
+        public void setBreadcrumb(BreadcrumbList breadcrumb) {
+            this.breadcrumb = breadcrumb;
         }
 
-        public Builder setParentItem(Integer parentItem) {
-            this.parentItem = parentItem;
-            return this;
+        public void setBreadcrumb(String breadcrumb) {
+            this.breadcrumb = breadcrumb;
         }
 
-        public Builder setUpvoteCount(Question upvoteCount) {
-            this.upvoteCount = upvoteCount;
+        public void setLastReviewed(Calendar lastReviewed) {
+            this.lastReviewed = lastReviewed;
+        }
+
+        public void setMainContentOfPage(WebPageElement mainContentOfPage) {
+            this.mainContentOfPage = mainContentOfPage;
+        }
+
+        public void setPrimaryImageOfPage(ImageObject primaryImageOfPage) {
+            this.primaryImageOfPage = primaryImageOfPage;
+        }
+
+        public void setRelatedLink(String relatedLink) {
+            this.relatedLink = relatedLink;
+        }
+
+        public void setReviewedBy(Organization reviewedBy) {
+            this.reviewedBy = reviewedBy;
+        }
+
+        public void setReviewedBy(Person reviewedBy) {
+            this.reviewedBy = reviewedBy;
+        }
+
+        public void setSignificantLink(String significantLink) {
+            this.significantLink = significantLink;
+        }
+
+        public void setSpecialty(Specialty specialty) {
+            this.specialty = specialty;
+        }
+
+        // inherited from CreativeWork
+        @Override
+        public Builder setAbout(Thing about) {
+            super.setAbout(about);
             return this;
         }
 
@@ -86,6 +155,18 @@ public class Answer extends CreativeWork {
         @Override
         public Builder setAlternativeHeadline(String alternativeHeadline) {
             super.setAlternativeHeadline(alternativeHeadline);
+            return this;
+        }
+
+        @Override
+        public Builder setAuthor(Person author) {
+            super.setAuthor(author);
+            return this;
+        }
+
+        @Override
+        public Builder setAuthor(Organization author) {
+            super.setAuthor(author);
             return this;
         }
 
@@ -264,6 +345,18 @@ public class Answer extends CreativeWork {
         }
 
         @Override
+        public Builder setPublisher(Organization publisher) {
+            super.setPublisher(publisher);
+            return this;
+        }
+
+        @Override
+        public Builder setPublisher(Person publisher) {
+            super.setPublisher(publisher);
+            return this;
+        }
+
+        @Override
         public Builder setPublishingPrinciples(String publishingPrinciples) {
             super.setPublishingPrinciples(publishingPrinciples);
             return this;
@@ -323,6 +416,7 @@ public class Answer extends CreativeWork {
             return this;
         }
 
+        // Following lines override the Parent Thing Builder
         @Override
         public Builder setAdditionalType(String additionalType) {
             super.setAdditionalType(additionalType);
@@ -342,13 +436,13 @@ public class Answer extends CreativeWork {
         }
 
         @Override
-        public Builder setId(String id) {
-            super.setId(id);
+        public Builder setImage(String image) {
+            super.setImage(image);
             return this;
         }
 
         @Override
-        public Builder setImage(String image) {
+        public Builder setImage(ImageObject image) {
             super.setImage(image);
             return this;
         }
@@ -362,6 +456,12 @@ public class Answer extends CreativeWork {
         @Override
         public Builder setName(String name) {
             super.setName(name);
+            return this;
+        }
+
+        @Override
+        public Builder setPotentialAction(Action potentialAction) {
+            super.setPotentialAction(potentialAction);
             return this;
         }
 
@@ -384,21 +484,16 @@ public class Answer extends CreativeWork {
         }
 
         @Override
-        public Builder setImage(ImageObject image) {
-            super.setImage(image);
+        public Builder setId(String id) {
+            super.setId(id);
             return this;
         }
 
-        @Override
-        public Builder setAbout(Thing about) {
-            super.setAbout(about);
-            return this;
-        }
 
         @Override
-        public Answer build() {
-            return new Answer(this);
+        public WebPage build() {
+            return new WebPage(this);
         }
+
     }
-
 }
