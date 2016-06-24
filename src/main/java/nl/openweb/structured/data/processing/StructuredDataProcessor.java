@@ -102,7 +102,7 @@ public class StructuredDataProcessor {
         Optional<StructuredDataMapper> result = Optional.absent();
         for (Optional<StructuredDataMapper> structuredDataMapper : dataMapperMap.values()) {
             if (structuredDataMapper.isPresent() && structuredDataMapper.get().getType().isAssignableFrom(beanClass)) {
-                if (result == null ||
+                if (!result.isPresent() ||
                         result.get().getType().isAssignableFrom(structuredDataMapper.get().getType())) {
                     result = structuredDataMapper;
                 }
