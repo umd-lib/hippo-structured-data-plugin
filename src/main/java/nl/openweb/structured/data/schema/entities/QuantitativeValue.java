@@ -2,8 +2,8 @@ package nl.openweb.structured.data.schema.entities;
 
 public class QuantitativeValue extends StructuredValue {
     private String additionalProperty;
-    private int maxValue;
-    private int minValue;
+    private Integer maxValue;
+    private Integer minValue;
     private String unitCode;
     private String unitText;
     private Object value;
@@ -22,11 +22,11 @@ public class QuantitativeValue extends StructuredValue {
         return additionalProperty;
     }
 
-    public int getMaxValue() {
+    public Integer getMaxValue() {
         return maxValue;
     }
 
-    public int getMinValue() {
+    public Integer getMinValue() {
         return minValue;
     }
 
@@ -44,8 +44,8 @@ public class QuantitativeValue extends StructuredValue {
 
     public static class Builder extends StructuredValue.Builder {
         private String additionalProperty;
-        private int maxValue;
-        private int minValue;
+        private Integer maxValue;
+        private Integer minValue;
         private String unitCode;
         private String unitText;
         private Object value;
@@ -55,12 +55,12 @@ public class QuantitativeValue extends StructuredValue {
             return this;
         }
 
-        public Builder setMaxValue(int maxValue) {
+        public Builder setMaxValue(Integer maxValue) {
             this.maxValue = maxValue;
             return this;
         }
 
-        public Builder setMinValue(int minValue) {
+        public Builder setMinValue(Integer minValue) {
             this.minValue = minValue;
             return this;
         }
