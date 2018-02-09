@@ -10,7 +10,7 @@
 
   <groupId>nl.openweb.hippo.hst</groupId>
   <artifactId>structured-data</artifactId>
-  <version>10.0.05-SNAPSHOT</version>
+  <version>10.1.2-umd-0.1-SNAPSHOT</version>
   <properties>
     <jsp-api.version>2.2</jsp-api.version>
     <taglibs.version>1.2.1</taglibs.version>
@@ -86,14 +86,16 @@
     <developerConnection>scm:git:git@github.com:openweb-nl/hippo-structured-data-plugin.git</developerConnection>
     <tag>HEAD</tag>
   </scm>
-  <distributionManagement>
+ <distributionManagement>
     <repository>
-      <id>openweb-maven-releases</id>
-      <url>https://maven.open-web.nl/content/repositories/releases/</url>
+      <id>nexus</id>
+      <name>Releases</name>
+      <url>https://maven.lib.umd.edu/nexus/content/repositories/releases</url>
     </repository>
     <snapshotRepository>
-      <id>openweb-nexus-snapshots</id>
-      <url>https://nexus.open-web.nl/nexus/content/repositories/snapshots/</url>
+      <id>nexus</id>
+      <name>Snapshots</name>
+      <url>https://maven.lib.umd.edu/nexus/content/repositories/snapshots</url>
     </snapshotRepository>
   </distributionManagement>
   <repositories>
