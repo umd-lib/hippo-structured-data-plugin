@@ -18,7 +18,7 @@ public class PublicationIssue extends CreativeWork {
     this.pagination = builder.pagination;
   }
 
-  public String getIssueumber() {
+  public String getIssueNumber() {
     return issueNumber;
   }
 
