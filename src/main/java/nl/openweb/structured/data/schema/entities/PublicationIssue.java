@@ -296,6 +296,18 @@ public class PublicationIssue extends CreativeWork {
     }
 
     @Override
+    public Builder setProvider(Organization provider) {
+      super.setProvider(provider);
+      return this;
+    }
+
+    @Override
+    public Builder setProvider(Person provider) {
+      super.setProvider(provider);
+      return this;
+    }
+
+    @Override
     public Builder setPublisher(Organization publisher) {
       super.setPublisher(publisher);
       return this;
