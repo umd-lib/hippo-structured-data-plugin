@@ -50,6 +50,7 @@ public class CreativeWork extends Thing {
   private Review review;
   private String schemaVersion;
   private Organization sourceOrganization;
+  private String temporalCoverage;
   private String text;
   private String thumbnailUrl;
   private String typicalAgeRange;
@@ -103,6 +104,7 @@ public class CreativeWork extends Thing {
     this.review = builder.review;
     this.schemaVersion = builder.schemaVersion;
     this.sourceOrganization = builder.sourceOrganization;
+    this.temporalCoverage = builder.temporalCoverage;
     this.text = builder.text;
     this.thumbnailUrl = builder.thumbnailUrl;
     this.typicalAgeRange = builder.typicalAgeRange;
@@ -294,6 +296,10 @@ public class CreativeWork extends Thing {
     return text;
   }
 
+  public String getTemporalCoverage() {
+    return temporalCoverage;
+  }
+
   public String getThumbnailUrl() {
     return thumbnailUrl;
   }
@@ -354,6 +360,7 @@ public class CreativeWork extends Thing {
     private Review review;
     private String schemaVersion;
     private Organization sourceOrganization;
+    private String temporalCoverage;
     private String text;
     private String thumbnailUrl;
     private String typicalAgeRange;
@@ -599,6 +606,11 @@ public class CreativeWork extends Thing {
 
     public Builder setSourceOrganization(Organization sourceOrganization) {
       this.sourceOrganization = sourceOrganization;
+      return this;
+    }
+
+    public Builder setTemporalCoverage(String temporalCoverage) {
+      this.temporalCoverage = temporalCoverage;
       return this;
     }
 
