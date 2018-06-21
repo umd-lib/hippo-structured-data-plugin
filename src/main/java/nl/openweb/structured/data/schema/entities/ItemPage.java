@@ -3,60 +3,70 @@ package nl.openweb.structured.data.schema.entities;
 import java.util.Calendar;
 import java.util.List;
 
-public class PublicationIssue extends CreativeWork {
-
-  private String issueNumber;
-  private String pageStart;
-  private String pageEnd;
-  private String pagination;
-
-  protected PublicationIssue(Builder builder) {
+public class ItemPage extends WebPage {
+  protected ItemPage(Builder builder) {
     super(builder);
-    this.issueNumber = builder.issueNumber;
-    this.pageStart = builder.pageStart;
-    this.pageEnd = builder.pageEnd;
-    this.pagination = builder.pagination;
   }
 
-  public String getIssueNumber() {
-    return issueNumber;
-  }
-
-  public String getPageStart() {
-    return pageStart;
-  }
-
-  public String getPageEnd() {
-    return pageEnd;
-  }
-
-  public String getPaginationt() {
-    return pagination;
-  }
-
-  public static class Builder extends CreativeWork.Builder {
-    private String issueNumber;
-    private String pageStart;
-    private String pageEnd;
-    private String pagination;
-
-    public Builder setIssueNumber(String issueNumber) {
-      this.issueNumber = issueNumber;
+  public static class Builder extends WebPage.Builder {
+    // inherited from WebPage
+    @Override
+    public Builder setBreadcrumb(BreadcrumbList breadcrumb) {
+      super.setBreadcrumb(breadcrumb);
       return this;
     }
 
-    public Builder setPageStart(String pageStart) {
-      this.pageStart = pageStart;
+    @Override
+    public Builder setBreadcrumb(String breadcrumb) {
+      super.setBreadcrumb(breadcrumb);
       return this;
     }
 
-    public Builder setPageEnd(String pageEnd) {
-      this.pageEnd = pageEnd;
+    @Override
+    public Builder setLastReviewed(Calendar lastReviewed) {
+      super.setLastReviewed(lastReviewed);
       return this;
     }
 
-    public Builder setPagination(String pagination) {
-      this.pagination = pagination;
+    @Override
+    public Builder setMainContentOfPage(WebPageElement mainContentOfPage) {
+      super.setMainContentOfPage(mainContentOfPage);
+      return this;
+    }
+
+    @Override
+    public Builder setPrimaryImageOfPage(ImageObject primaryImageOfPage) {
+      super.setPrimaryImageOfPage(primaryImageOfPage);
+      return this;
+    }
+
+    @Override
+    public Builder setRelatedLink(String relatedLink) {
+      super.setRelatedLink(relatedLink);
+      return this;
+    }
+
+    @Override
+    public Builder setReviewedBy(Organization reviewedBy) {
+      super.setReviewedBy(reviewedBy);
+      return this;
+    }
+
+    @Override
+    public Builder setReviewedBy(Person reviewedBy) {
+      super.setReviewedBy(reviewedBy);
+      return this;
+    }
+
+    @Override
+    public Builder setSignificantLink(String significantLink) {
+      super.setSignificantLink(significantLink);
+      return this;
+    }
+
+    @Override
+    public Builder setSpecialty(Specialty specialty) {
+      super.setSpecialty(specialty);
       return this;
     }
 
@@ -296,18 +306,6 @@ public class PublicationIssue extends CreativeWork {
     }
 
     @Override
-    public Builder setProvider(Organization provider) {
-      super.setProvider(provider);
-      return this;
-    }
-
-    @Override
-    public Builder setProvider(Person provider) {
-      super.setProvider(provider);
-      return this;
-    }
-
-    @Override
     public Builder setPublisher(Organization publisher) {
       super.setPublisher(publisher);
       return this;
@@ -453,9 +451,8 @@ public class PublicationIssue extends CreativeWork {
     }
 
     @Override
-    public PublicationIssue build() {
-      return new PublicationIssue(this);
+    public ItemPage build() {
+      return new ItemPage(this);
     }
-
   }
 }

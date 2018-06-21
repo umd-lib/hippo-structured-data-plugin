@@ -10,7 +10,7 @@
 
   <groupId>nl.openweb.hippo.hst</groupId>
   <artifactId>structured-data</artifactId>
-  <version>10.1.2-umd-0.2</version>
+  <version>10.1.2-umd-0.4-SNAPSHOT</version>
   <properties>
     <jsp-api.version>2.2</jsp-api.version>
     <taglibs.version>1.2.1</taglibs.version>
