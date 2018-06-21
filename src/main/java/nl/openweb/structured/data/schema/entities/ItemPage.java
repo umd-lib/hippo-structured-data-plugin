@@ -3,119 +3,70 @@ package nl.openweb.structured.data.schema.entities;
 import java.util.Calendar;
 import java.util.List;
 
-public class WebPage extends CreativeWork {
-
-  private Object breadcrumb;
-  private Calendar lastReviewed;
-  private WebPageElement mainContentOfPage;
-  private ImageObject primaryImageOfPage;
-  private String relatedLink;
-  private Thing reviewedBy;
-  private String significantLink;
-  private Specialty specialty;
-
-  protected WebPage(Builder builder) {
+public class ItemPage extends WebPage {
+  protected ItemPage(Builder builder) {
     super(builder);
-
-    this.breadcrumb = builder.breadcrumb;
-    this.lastReviewed = builder.lastReviewed;
-    this.mainContentOfPage = builder.mainContentOfPage;
-    this.primaryImageOfPage = builder.primaryImageOfPage;
-    this.relatedLink = builder.relatedLink;
-    this.reviewedBy = builder.reviewedBy;
-    this.significantLink = builder.significantLink;
-    this.specialty = builder.specialty;
   }
 
-  public Object getBreadcrumb() {
-    return breadcrumb;
-  }
-
-  public Calendar getLastReviewed() {
-    return lastReviewed;
-  }
-
-  public WebPageElement getMainContentOfPage() {
-    return mainContentOfPage;
-  }
-
-  public ImageObject getPrimaryImageOfPage() {
-    return primaryImageOfPage;
-  }
-
-  public String getRelatedLink() {
-    return relatedLink;
-  }
-
-  public Thing getReviewedBy() {
-    return reviewedBy;
-  }
-
-  public String getSignificantLink() {
-    return significantLink;
-  }
-
-  public Specialty getSpecialty() {
-    return specialty;
-  }
-
-  public static class Builder extends CreativeWork.Builder {
-    private Object breadcrumb;
-    private Calendar lastReviewed;
-    private WebPageElement mainContentOfPage;
-    private ImageObject primaryImageOfPage;
-    private String relatedLink;
-    private Thing reviewedBy;
-    private String significantLink;
-    private Specialty specialty;
-
+  public static class Builder extends WebPage.Builder {
+    // inherited from WebPage
+    @Override
     public Builder setBreadcrumb(BreadcrumbList breadcrumb) {
-      this.breadcrumb = breadcrumb;
+      super.setBreadcrumb(breadcrumb);
       return this;
     }
 
+    @Override
     public Builder setBreadcrumb(String breadcrumb) {
-      this.breadcrumb = breadcrumb;
+      super.setBreadcrumb(breadcrumb);
       return this;
     }
 
+    @Override
     public Builder setLastReviewed(Calendar lastReviewed) {
-      this.lastReviewed = lastReviewed;
+      super.setLastReviewed(lastReviewed);
       return this;
     }
 
+    @Override
     public Builder setMainContentOfPage(WebPageElement mainContentOfPage) {
-      this.mainContentOfPage = mainContentOfPage;
+      super.setMainContentOfPage(mainContentOfPage);
       return this;
     }
 
+    @Override
     public Builder setPrimaryImageOfPage(ImageObject primaryImageOfPage) {
-      this.primaryImageOfPage = primaryImageOfPage;
+      super.setPrimaryImageOfPage(primaryImageOfPage);
       return this;
     }
 
+    @Override
     public Builder setRelatedLink(String relatedLink) {
-      this.relatedLink = relatedLink;
+      super.setRelatedLink(relatedLink);
       return this;
     }
 
+    @Override
     public Builder setReviewedBy(Organization reviewedBy) {
-      this.reviewedBy = reviewedBy;
+      super.setReviewedBy(reviewedBy);
       return this;
     }
 
+    @Override
     public Builder setReviewedBy(Person reviewedBy) {
-      this.reviewedBy = reviewedBy;
+      super.setReviewedBy(reviewedBy);
       return this;
     }
 
+    @Override
     public Builder setSignificantLink(String significantLink) {
-      this.significantLink = significantLink;
+      super.setSignificantLink(significantLink);
       return this;
     }
 
+    @Override
     public Builder setSpecialty(Specialty specialty) {
-      this.specialty = specialty;
+      super.setSpecialty(specialty);
       return this;
     }
 
@@ -500,9 +451,8 @@ public class WebPage extends CreativeWork {
     }
 
     @Override
-    public WebPage build() {
-      return new WebPage(this);
+    public ItemPage build() {
+      return new ItemPage(this);
     }
-
   }
 }
